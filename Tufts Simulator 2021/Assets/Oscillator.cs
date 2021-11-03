@@ -12,8 +12,8 @@ public class Oscillator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 2; 
-        h = 4; 
+        speed = 2;
+        h = 4;
         w = 4;
     }
 
@@ -23,7 +23,7 @@ public class Oscillator : MonoBehaviour
         t += Time.deltaTime*speed;
         float x = Mathf.Cos(t * w); 
         float y = Mathf.Cos(t * h);
-        float z = 5; 
+        float z = 5;
 
         transform.position = new Vector3(x, y, z);
 

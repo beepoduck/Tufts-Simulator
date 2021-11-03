@@ -68,6 +68,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
 
+            if (Input.GetMouseButtonDown(0))
+            {
+                Punch();
+            }
+
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
                 StartCoroutine(m_JumpBob.DoBobCycle());
@@ -91,6 +96,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_NextStep = m_StepCycle + .5f;
         }
 
+        private void Punch()
+        {
+          Debug.Log("Pressed primary button.");
+        }
 
         private void FixedUpdate()
         {

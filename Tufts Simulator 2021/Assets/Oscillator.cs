@@ -4,28 +4,40 @@ using UnityEngine;
 
 public class Oscillator : MonoBehaviour
 {
-    float t = 0;
-
-    float speed;
-    float h;
-    float w;
+    float z;
+    float x;
+    bool ret;
     // Start is called before the first frame update
     void Start()
     {
-        speed = 2; 
-        h = 4; 
-        w = 4;
+     float x = 0;
+     float z = 0;
+     bool ret = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        t += Time.deltaTime*speed;
-        float x = Mathf.Cos(t * w); 
-        float y = Mathf.Cos(t * h);
-        float z = 5; 
+         Debug.Log(x);
+        Debug.Log(z);
+        if (x < 13 && !ret) {
+            x += 0.05f;
+        } else if (x >= 13 && !ret && z < 14) {
+            z += 0.05f;
+        } else {
+            ret = true;
+        }
 
-        transform.position = new Vector3(x, y, z);
+        if (ret && z > 0 && x > 0) {
+            z = z - 0.05f;
+        } else if (ret && z <= 0 && x > 0) {
+            x = x - 0.05f;
+        } else { 
+            ret = false;
+        }
+
+
+        transform.position = new Vector3(x, 0, z);
 
     }
 }

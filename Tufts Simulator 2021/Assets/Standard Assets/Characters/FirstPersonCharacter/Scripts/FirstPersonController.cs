@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
@@ -10,6 +12,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
+        [SerializeField] private Image m_punch1;
+        [SerializeField] private Image m_punch2;
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
@@ -70,7 +74,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (Input.GetMouseButtonDown(0))
             {
-                Punch();
+                StartCoroutine(Punch());
             }
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
@@ -96,9 +100,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_NextStep = m_StepCycle + .5f;
         }
 
-        private void Punch()
+        IEnumerator Punch()
         {
-          Debug.Log("Pressed primary button.");
+          if (Random.Range(0, 2) == 1)
+          {
+            m_punch1.enabled = true;
+            yield return new WaitForSeconds(1);
+            m_punch1.enabled = false;
+          }
+          else
+          {
+            m_punch2.enabled = true;
+            yield return new WaitForSeconds(1);
+            m_punch2.enabled = false;
+          }
         }
 
         private void FixedUpdate()

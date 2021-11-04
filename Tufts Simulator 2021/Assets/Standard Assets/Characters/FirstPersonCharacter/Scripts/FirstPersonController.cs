@@ -17,6 +17,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
+        [SerializeField] private float m_PlayerHealth;
+        [SerializeField] private float m_PlayerXP;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
@@ -49,6 +51,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Use this for initialization
         private void Start()
         {
+            m_PlayerHealth = 100;
+            m_PlayerXP = 0;
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -65,6 +69,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+            DisplayStats();
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -100,8 +105,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_NextStep = m_StepCycle + .5f;
         }
 
+        //this function will display the health and xp ui
+        private void DisplayStats()
+        {
+          Debug.Log(m_PlayerHealth);
+        }
+
         IEnumerator Punch()
         {
+          m_punch1.enabled = false;
+          m_punch2.enabled = false;
+
           if (Random.Range(0, 2) == 1)
           {
             m_punch1.enabled = true;
@@ -114,6 +128,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
             yield return new WaitForSeconds(1);
             m_punch2.enabled = false;
           }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+          if(other.gameObject.tag == "Enemy")
+          {
+            Debug.Log("COLLISION");
+            StartCoroutine(ReduceHealth(other));
+          }
+        }
+
+        IEnumerator ReduceHealth(Collider other)
+        {
+          m_PlayerHealth -= 1;
+          yield return new WaitForSeconds(1);
         }
 
         private void FixedUpdate()

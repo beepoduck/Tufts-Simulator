@@ -147,19 +147,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
           }
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
           if(other.gameObject.tag == "Enemy")
           {
             Debug.Log("COLLISION");
-            StartCoroutine(ReduceHealth(other));
+            ReduceHealth(other);
           }
         }
 
-        IEnumerator ReduceHealth(Collider other)
+        void ReduceHealth(Collider other)
         {
           m_PlayerHealth -= 1;
-          yield return new WaitForSeconds(1);
         }
 
         private void FixedUpdate()

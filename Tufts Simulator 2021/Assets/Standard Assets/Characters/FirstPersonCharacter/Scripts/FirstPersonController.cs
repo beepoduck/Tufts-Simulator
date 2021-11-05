@@ -14,6 +14,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
     {
         [SerializeField] private Image m_punch1;
         [SerializeField] private Image m_punch2;
+        [SerializeField] private AudioClip m_punch1sound;
+        [SerializeField] private AudioClip m_punch2sound;
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
@@ -119,12 +121,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
           if (Random.Range(0, 2) == 1)
           {
             m_punch1.enabled = true;
+            m_AudioSource.clip = m_punch1sound;
+            m_AudioSource.Play();
             yield return new WaitForSeconds(1);
             m_punch1.enabled = false;
           }
           else
           {
             m_punch2.enabled = true;
+            m_AudioSource.clip = m_punch2sound;
+            m_AudioSource.Play();
             yield return new WaitForSeconds(1);
             m_punch2.enabled = false;
           }

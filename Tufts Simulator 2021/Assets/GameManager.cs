@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         {
             gameHasEnded = true;
             Debug.Log("GAME OVER");
-            // SceneManager.LoadScene("DEATHSCENE")
+            SceneManager.LoadScene("DEATHSCENE");
         }
     }
     // Exists for bugs, i.e. falling off the map

@@ -18,8 +18,8 @@ public class Oscillator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         Debug.Log(x);
-        Debug.Log(z);
+        //Debug.Log(x);
+        //Debug.Log(z);
         if (x < 13 && !ret) {
             x += 0.05f;
         } else if (x >= 13 && !ret && z < 14) {
@@ -32,7 +32,7 @@ public class Oscillator : MonoBehaviour
             z = z - 0.05f;
         } else if (ret && z <= 0 && x > 0) {
             x = x - 0.05f;
-        } else { 
+        } else {
             ret = false;
         }
 

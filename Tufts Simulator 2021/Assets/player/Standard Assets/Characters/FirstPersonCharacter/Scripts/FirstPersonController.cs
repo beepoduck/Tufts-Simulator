@@ -19,8 +19,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
-        [SerializeField] private float m_PlayerHealth;
-        [SerializeField] private float m_PlayerXP;
+        public float m_PlayerHealth;
+        public float m_PlayerXP;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
@@ -64,7 +64,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_NextStep = m_StepCycle/2f;
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
-			m_MouseLook.Init(transform , m_Camera.transform);
+			      m_MouseLook.Init(transform , m_Camera.transform);
         }
 
 
@@ -73,6 +73,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             DisplayStats();
             RotateView();
+            lookingatNPC();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
@@ -105,6 +106,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource.clip = m_LandSound;
             m_AudioSource.Play();
             m_NextStep = m_StepCycle + .5f;
+        }
+
+        private void lookingatNPC()
+        {
+          Vector3 dir = (transform.position - GameObject.FindWithTag("Enemy").transform.position);
+          float angle = Vector3.Angle(transform.forward, dir);
+          if (angle < 60 && dir.magnitude < .3f)
+          {
+            Debug.Log("LOOKING AT NPC");
+          }
         }
 
         //this function will display the health and xp ui

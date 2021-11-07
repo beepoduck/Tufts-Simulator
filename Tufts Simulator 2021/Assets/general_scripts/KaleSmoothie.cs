@@ -5,7 +5,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class KaleSmoothie : MonoBehaviour
 {
-    public GameObject player; 
+    public GameObject player;
     private FirstPersonController fps_script;
 
 void OnTriggerEnter(Collider other) {
@@ -16,4 +16,5 @@ void OnTriggerEnter(Collider other) {
         // FirstPersonController script = thePlayer.GetComponent<FirstPersonController>();
         fps_script.m_PlayerXP += 5;
     }
+  }
 }    

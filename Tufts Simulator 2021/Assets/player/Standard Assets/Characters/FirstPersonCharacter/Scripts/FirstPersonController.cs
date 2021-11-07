@@ -19,12 +19,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
-        
+
         public int maxHealth = 100;
         public int XP_i = 0;
         public int m_PlayerHealth;
         public int m_PlayerXP;
-        
+
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
@@ -53,7 +53,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
-        
+
         public HealthBar healthBar;
 
         // Use this for initialization
@@ -61,9 +61,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             m_PlayerHealth = maxHealth;
             m_PlayerXP = XP_i;
-            
+
             healthBar.SetMaxHealth(maxHealth);
-            
+
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -117,6 +117,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_NextStep = m_StepCycle + .5f;
         }
 
+        //this function should trigger when the player is looking at a game object
+        //  of the tag specified below
         private void lookingatNPC()
         {
           Vector3 dir = (transform.position - GameObject.FindWithTag("Enemy").transform.position);
@@ -171,9 +173,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
           healthBar.SetHealth(m_PlayerHealth);
           if (m_PlayerHealth <= 0)
           {
-            FindObjectOfType<GameManager>().EndGame();  
+            FindObjectOfType<GameManager>().EndGame();
           }
-          
+
         }
 
         private void FixedUpdate()
@@ -215,7 +217,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             UpdateCameraPosition(speed);
 
             m_MouseLook.UpdateCursorLock();
-            
+
             if (GameObject.Find("FPSController").transform.position.y < -1f)
             {
                 FindObjectOfType<GameManager>().ResetPlayer();

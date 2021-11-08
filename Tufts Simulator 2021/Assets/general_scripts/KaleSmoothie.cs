@@ -14,7 +14,7 @@ void OnTriggerEnter(Collider other) {
         fps_script = player.GetComponent<FirstPersonController>();
         // GameObject thePlayer = GameObject.Find("FirstPersonCharacter");
         // FirstPersonController script = thePlayer.GetComponent<FirstPersonController>();
-        fps_script.m_PlayerXP += 5;
+        fps_script.m_PlayerHealth += 5;
     }
   }
 }    

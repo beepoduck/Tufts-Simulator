@@ -21,7 +21,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float m_RunSpeed;
 
         public int maxHealth = 100;
-        public int XP_i = 0;
+        public int initial_XP = 0;
         public int m_PlayerHealth;
         public int m_PlayerXP;
 
@@ -60,7 +60,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Start()
         {
             m_PlayerHealth = maxHealth;
-            m_PlayerXP = XP_i;
+            m_PlayerXP = initial_XP;
 
             healthBar.SetMaxHealth(maxHealth);
 

@@ -9,13 +9,18 @@ using UnityStandardAssets.Characters.FirstPerson;
  {
 
      public Transform Player;
+     // public GameObject Playerref;
      public CapsuleCollider playerCollider;
      public CapsuleCollider physicsCollider;
+     public int xp_to_give = 10;
      int MoveSpeed = 4;
      int MaxDist = 10;
      float MinDist = 2;
      bool attacking = false;
      bool canattack = true;
+     bool canbeattacked = true;
+     int ai_health = 10;
+     // int player_xp;
 
      void Start()
      {
@@ -24,6 +29,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
      void Update()
      {
+         //makes ai look at player from start
          transform.LookAt(Player);
          //if ai is close enough to player to notice player
          if (Vector3.Distance(transform.position, Player.position) <= MaxDist && Vector3.Distance(transform.position, Player.position) >= MinDist)
@@ -36,14 +42,37 @@ using UnityStandardAssets.Characters.FirstPerson;
          {
            //do what ai does when its too far away
            //add script for idle ai activity here (stand still is ok, or add idle walking)
-           Debug.Log("TOO FAR AWAY!!!!");
          }
          //if ai is close enough to player to attack them
          else if (canattack && !attacking && Vector3.Distance(transform.position, Player.position) <= MinDist)
          {
            StartCoroutine(ExpandHitbox());
-           StartCoroutine(waitasecond());
+           StartCoroutine(waittoattack());
          }
+     }
+
+     //this detects if the ai has collided with a weapon
+     // (checks if the player punches this ai)
+     private void OnTriggerEnter(Collider other)
+     {
+       if(canbeattacked && other.gameObject.tag == "Weapon")
+       {
+         ReduceHealth(other);
+       }
+     }
+
+     //this function actually removes health from ai, then kills them if they have
+     // no health by deleting them from the game
+     void ReduceHealth(Collider other)
+     {
+       ai_health -= 5;
+       if (ai_health <= 0)
+       {
+         // player_xp = Playerref.GetComponent <m_PlayerXP>();
+         // player_xp += xp_to_give;
+         Object.Destroy(this.gameObject);
+       }
+       StartCoroutine(waittobeattacked());
      }
 
      //The enemy will expand its hitbox for a frame so that it overlaps the player's hitbox
@@ -58,12 +87,19 @@ using UnityStandardAssets.Characters.FirstPerson;
        attacking = false;
      }
 
-     //This function basically just makes the script wait 1 second before proceeding
-     IEnumerator waitasecond()
+     //These 2 functions basically just makes the script wait 1 second before proceeding
+     IEnumerator waittoattack()
      {
        canattack = false;
        yield return new WaitForSeconds(1);
        canattack = true;
+     }
+
+     IEnumerator waittobeattacked()
+     {
+       canbeattacked = false;
+       yield return new WaitForSeconds(1);
+       canbeattacked = true;
      }
 
 }

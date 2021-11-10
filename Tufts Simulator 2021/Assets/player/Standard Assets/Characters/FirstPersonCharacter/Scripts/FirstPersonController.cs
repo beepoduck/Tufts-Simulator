@@ -52,6 +52,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
+        private bool canattack;
         private AudioSource m_AudioSource;
 
         public HealthBar healthBar;
@@ -72,6 +73,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_StepCycle = 0f;
             m_NextStep = m_StepCycle/2f;
             m_Jumping = false;
+            canattack = true;
             m_AudioSource = GetComponent<AudioSource>();
 			      m_MouseLook.Init(transform , m_Camera.transform);
         }
@@ -80,20 +82,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+            //this function call lets us display any player stats we want
             DisplayStats();
+            //this rotates camera view with player rotation
             RotateView();
-            lookingatNPC();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
-
-            if (Input.GetMouseButtonDown(0))
+            //trigger for punch animation and sound
+            //trigger for punch damage is in FistPunches.cs amd AIMover.cs
+            if (canattack && Input.GetMouseButtonDown(0))
             {
                 StartCoroutine(Punch());
             }
-
+            //controls head bob for camera
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
                 StartCoroutine(m_JumpBob.DoBobCycle());
@@ -101,6 +105,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_MoveDir.y = 0f;
                 m_Jumping = false;
             }
+            //jump case for player is already in air
             if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded)
             {
                 m_MoveDir.y = 0f;
@@ -109,74 +114,78 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
-
-        private void PlayLandingSound()
-        {
-            m_AudioSource.clip = m_LandSound;
-            m_AudioSource.Play();
-            m_NextStep = m_StepCycle + .5f;
-        }
-
-        //this function should trigger when the player is looking at a game object
-        //  of the tag specified below
-        private void lookingatNPC()
-        {
-          Vector3 dir = (transform.position - GameObject.FindWithTag("Enemy").transform.position);
-          float angle = Vector3.Angle(transform.forward, dir);
-          if (angle < 60 && dir.magnitude < .3f)
-          {
-            Debug.Log("LOOKING AT NPC");
-          }
-        }
-
         //this function will display the health and xp ui
         private void DisplayStats()
         {
-          Debug.Log(m_PlayerHealth);
+          //Debug.Log(m_PlayerHealth);
         }
 
+        //this function starts a coroutine to display punch sound and annimation
         IEnumerator Punch()
         {
+          //declares all variables to false to ensure we are not already punching,
+          //  and can't punch again till after this function runs
+          canattack = false;
           m_punch1.enabled = false;
           m_punch2.enabled = false;
-
+          //this if / else check basically just randomly decides which of two
+          //  punch images/sounds will play in this instance
           if (Random.Range(0, 2) == 1)
           {
+            //setting m_punch.enabled = true displays the punch image on screen
             m_punch1.enabled = true;
+            //this gets and plays the punch audio clip
             m_AudioSource.clip = m_punch1sound;
             m_AudioSource.Play();
+            //this is why the function is a coroutine instead of a normal function -
+            //  We must leave the punch image on screen for one second, and ensure the
+            //  player doesn't spam their punches
             yield return new WaitForSeconds(1);
             m_punch1.enabled = false;
           }
           else
           {
+            //everything here is a mirror of the above if check, but just with
+            //  m_punch2 and m_punch2sound instead of m_punch1...
             m_punch2.enabled = true;
             m_AudioSource.clip = m_punch2sound;
             m_AudioSource.Play();
             yield return new WaitForSeconds(1);
             m_punch2.enabled = false;
           }
+          // allows the player to punch again after the function has run
+          canattack = true;
         }
 
+        //checks if the player collides with another game object
         private void OnTriggerStay(Collider other)
         {
+          //if the player collides with an enemy, they should take damage
           if(other.gameObject.tag == "Enemy")
           {
-            Debug.Log("COLLISION");
             ReduceHealth(other);
           }
         }
 
+        //reduces the player's health (usually due to them colliding with an enemy)
         void ReduceHealth(Collider other)
         {
           m_PlayerHealth -= 1;
+          //adjusts healthbar to reflect player health
           healthBar.SetHealth(m_PlayerHealth);
           if (m_PlayerHealth <= 0)
           {
+            //sends player to a game over screen when they die
             FindObjectOfType<GameManager>().EndGame();
           }
 
         }
+
+        ////////////////////////////////////////////////////////////////////////
+        //  BELOW ARE SCRIPTS THAT CAME WITH THE DEFAULT CONTROLLER           //
+        //    FUNCTIONS DEFINED ABOVE WERE MADE BY US                         //
+        ////////////////////////////////////////////////////////////////////////
+
 
         private void FixedUpdate()
         {
@@ -224,6 +233,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
+        private void PlayLandingSound()
+        {
+            m_AudioSource.clip = m_LandSound;
+            m_AudioSource.Play();
+            m_NextStep = m_StepCycle + .5f;
+        }
 
         private void PlayJumpSound()
         {

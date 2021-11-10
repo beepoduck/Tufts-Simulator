@@ -165,6 +165,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
           {
             ReduceHealth(other);
           }
+            if(other.gameObject.tag == "Health")
+          {
+            Debug.Log("HEALTH");
+            IncreaseHealth(other);
+          }
         }
 
         //reduces the player's health (usually due to them colliding with an enemy)
@@ -178,8 +183,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //sends player to a game over screen when they die
             FindObjectOfType<GameManager>().EndGame();
           }
+        }
+        void IncreaseHealth(Collider other)
+        {
+          m_PlayerHealth += 5;
+          healthBar.SetHealth(m_PlayerHealth);
 
         }
+
 
         ////////////////////////////////////////////////////////////////////////
         //  BELOW ARE SCRIPTS THAT CAME WITH THE DEFAULT CONTROLLER           //

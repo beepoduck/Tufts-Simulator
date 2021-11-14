@@ -9,7 +9,8 @@ using UnityStandardAssets.Characters.FirstPerson;
  {
 
      public Transform Player;
-     // public GameObject Playerref;
+     //public GameObject playerc;
+     //private FirstPersonController fps_script;
      public CapsuleCollider playerCollider;
      public CapsuleCollider physicsCollider;
      public int xp_to_give = 10;
@@ -24,7 +25,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 
      void Start()
      {
-
+       playerCollider = gameObject.GetComponent <CapsuleCollider>();
+       playerCollider.enabled = true;
      }
 
      void Update()
@@ -68,8 +70,8 @@ using UnityStandardAssets.Characters.FirstPerson;
        ai_health -= 5;
        if (ai_health <= 0)
        {
-         // player_xp = Playerref.GetComponent <m_PlayerXP>();
-         // player_xp += xp_to_give;
+         //fps_script = playerc.GetComponent<FirstPersonController>();
+         //fps_script.m_PlayerXP += 5;
          Object.Destroy(this.gameObject);
        }
        StartCoroutine(waittobeattacked());
@@ -80,7 +82,7 @@ using UnityStandardAssets.Characters.FirstPerson;
      IEnumerator ExpandHitbox()
      {
        attacking = true;
-       playerCollider = gameObject.GetComponent <CapsuleCollider>();
+       //playerCollider = gameObject.GetComponent <CapsuleCollider>();
        playerCollider.radius += 2;
        yield return new WaitForFixedUpdate();
        playerCollider.radius -= 2;

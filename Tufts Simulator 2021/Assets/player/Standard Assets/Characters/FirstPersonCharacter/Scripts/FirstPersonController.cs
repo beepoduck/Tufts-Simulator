@@ -184,9 +184,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             FindObjectOfType<GameManager>().EndGame();
           }
         }
+
+        //increases the player's health (usually due to them collecting a smoothie)
         void IncreaseHealth(Collider other)
         {
           m_PlayerHealth += 5;
+          //adjusts healthbar to reflect player health
           healthBar.SetHealth(m_PlayerHealth);
 
         }

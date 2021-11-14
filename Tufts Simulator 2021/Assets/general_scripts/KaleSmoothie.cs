@@ -10,9 +10,7 @@ public class KaleSmoothie : MonoBehaviour
 
 void OnTriggerEnter(Collider other) {
     if (other.gameObject.CompareTag("Player")) {
-        // Debug.Log("hi");
-        fps_script = player.GetComponent<FirstPersonController>();
-        fps_script.m_PlayerHealth += 5;
+        Object.Destroy(this.gameObject);
     }
   }
-}    
+}

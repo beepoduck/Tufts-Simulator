@@ -23,7 +23,6 @@ public class FistPunches : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && canattack)
         {
-          Debug.Log("LEFT CLICKED");
           transform.forward = Player.forward;
           StartCoroutine(punch());
 
@@ -40,14 +39,14 @@ public class FistPunches : MonoBehaviour
       //moves the collider forwards to where the player is looking
       transform.position += transform.forward * 3;
       //expands collider to make sure it's big enough to hit enemy infront of you
-      collider.radius += 2;
+      collider.radius += 3;
       //waits until game can register there's a collision
       yield return new WaitForFixedUpdate();
       //only use WaitForSeconds to debug distance
       //yield return new WaitForSeconds(1);
       //everything below here just removes changes from first half of function,
       //  now that damage has been taken, the fist can be "removed" until used again
-      collider.radius -= 2;
+      collider.radius -= 3;
       transform.position -= transform.forward * 3;
       collider.enabled = false;
       canattack = true;

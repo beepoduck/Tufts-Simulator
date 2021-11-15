@@ -72,6 +72,7 @@ using UnityStandardAssets.Characters.FirstPerson;
        {
          //fps_script = playerc.GetComponent<FirstPersonController>();
          //fps_script.m_PlayerXP += 5;
+         FindObjectOfType<FirstPersonController>().addXP(10);
          Object.Destroy(this.gameObject);
        }
        StartCoroutine(waittobeattacked());
@@ -83,9 +84,9 @@ using UnityStandardAssets.Characters.FirstPerson;
      {
        attacking = true;
        //playerCollider = gameObject.GetComponent <CapsuleCollider>();
-       playerCollider.radius += 2;
+       playerCollider.radius += 3;
        yield return new WaitForFixedUpdate();
-       playerCollider.radius -= 2;
+       playerCollider.radius -= 3;
        attacking = false;
      }
 

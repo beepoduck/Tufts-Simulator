@@ -82,8 +82,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            //this function call lets us display any player stats we want
-            DisplayStats();
             //this rotates camera view with player rotation
             RotateView();
             // the jump state needs to read here to make sure it is not missed
@@ -93,7 +91,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             //trigger for punch animation and sound
             //trigger for punch damage is in FistPunches.cs amd AIMover.cs
-            if (canattack && Input.GetMouseButtonDown(0))
+            if (canattack && Input.GetMouseButtonDown(0) && Time.timeScale > 0)
             {
                 StartCoroutine(Punch());
             }
@@ -114,10 +112,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
-        //this function will display the health and xp ui
-        private void DisplayStats()
+        public void addXP(int XP)
         {
-          //Debug.Log(m_PlayerHealth);
+          m_PlayerXP += XP;
         }
 
         //this function starts a coroutine to display punch sound and annimation
@@ -155,19 +152,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
           }
           // allows the player to punch again after the function has run
           canattack = true;
+          m_punch1.enabled = false;
+          m_punch2.enabled = false;
         }
 
         //checks if the player collides with another game object
         private void OnTriggerStay(Collider other)
         {
           //if the player collides with an enemy, they should take damage
-          if(other.gameObject.tag == "Enemy")
+            if(other.gameObject.tag == "Enemy")
           {
             ReduceHealth(other);
           }
+          //if a player collides with a health item they should gain health
             if(other.gameObject.tag == "Health")
           {
-            Debug.Log("HEALTH");
             IncreaseHealth(other);
           }
         }
@@ -193,7 +192,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
           healthBar.SetHealth(m_PlayerHealth);
 
         }
-
 
         ////////////////////////////////////////////////////////////////////////
         //  BELOW ARE SCRIPTS THAT CAME WITH THE DEFAULT CONTROLLER           //
@@ -346,7 +344,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             // handle speed change to give an fov kick
             // only if the player is going to a run, is running and the fovkick is to be used
-            if (m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0)
+            if (m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0 && canattack)
             {
                 StopAllCoroutines();
                 StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
@@ -356,7 +354,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void RotateView()
         {
+          if (Time.timeScale > 0)
+          {
             m_MouseLook.LookRotation (transform, m_Camera.transform);
+          }
         }
 
 

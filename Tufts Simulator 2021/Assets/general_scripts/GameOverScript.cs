@@ -8,7 +8,7 @@ public class GameOverScript : MonoBehaviour
     void Update() {
         if (Input.GetKey("space"))
         {
-            SceneManager.LoadScene("Temp_Menu");
+            SceneManager.LoadScene("Menu_With_Buttons");
         } 
         else if (Input.GetKey("escape"))
         {

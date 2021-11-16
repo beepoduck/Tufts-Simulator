@@ -25,15 +25,18 @@ public class FistPunches : MonoBehaviour
         {
           transform.forward = Player.forward;
           StartCoroutine(punch());
+          StartCoroutine(waittoattack());
 
         }
     }
 
     //coroutine that gets called when player punches
+    //This function basically creates a fist weapon that shoots out forwards
+    //  and damages any enemy it touches. Once the enemy has taken tamage,
+    //  it pulls the fist weapon back so that it can't do damage until the
+    //  player punches again
     IEnumerator punch()
     {
-      //ensures player can't punch again till function is done running
-      canattack = false;
       //enables collider so enemy can take damage from it
       collider.enabled = true;
       //moves the collider forwards to where the player is looking
@@ -42,13 +45,19 @@ public class FistPunches : MonoBehaviour
       collider.radius += 3;
       //waits until game can register there's a collision
       yield return new WaitForFixedUpdate();
-      //only use WaitForSeconds to debug distance
-      //yield return new WaitForSeconds(1);
       //everything below here just removes changes from first half of function,
       //  now that damage has been taken, the fist can be "removed" until used again
       collider.radius -= 3;
       transform.position -= transform.forward * 3;
       collider.enabled = false;
+    }
+
+
+    //This function basically just makes the script wait 1 second before proceeding
+    IEnumerator waittoattack()
+    {
+      canattack = false;
+      yield return new WaitForSeconds(1);
       canattack = true;
     }
 

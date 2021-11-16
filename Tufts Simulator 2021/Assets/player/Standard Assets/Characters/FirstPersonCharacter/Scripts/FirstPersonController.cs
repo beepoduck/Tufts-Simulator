@@ -117,6 +117,30 @@ namespace UnityStandardAssets.Characters.FirstPerson
           m_PlayerXP += XP;
         }
 
+        public void DamagePlayer(int Damage)
+        {
+          m_PlayerHealth -= Damage;
+          healthBar.SetHealth(m_PlayerHealth);
+          if (m_PlayerHealth <= 0)
+          {
+            //sends player to a game over screen when they die
+            FindObjectOfType<GameManager>().EndGame();
+          }
+        }
+
+        //increases the player's health (usually due to them collecting a smoothie)
+        public void IncreaseHealth(int Health)
+        {
+          m_PlayerHealth += Health;
+          if(m_PlayerHealth > 100)
+          {
+            m_PlayerHealth = 100;
+          }
+          //adjusts healthbar to reflect player health
+          healthBar.SetHealth(m_PlayerHealth);
+
+        }
+
         //this function starts a coroutine to display punch sound and annimation
         IEnumerator Punch()
         {
@@ -156,42 +180,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
           m_punch2.enabled = false;
         }
 
-        //checks if the player collides with another game object
-        private void OnTriggerStay(Collider other)
-        {
-          //if the player collides with an enemy, they should take damage
-            if(other.gameObject.tag == "Enemy")
-          {
-            ReduceHealth(other);
-          }
-          //if a player collides with a health item they should gain health
-            if(other.gameObject.tag == "Health")
-          {
-            IncreaseHealth(other);
-          }
-        }
-
-        //reduces the player's health (usually due to them colliding with an enemy)
-        void ReduceHealth(Collider other)
-        {
-          m_PlayerHealth -= 1;
-          //adjusts healthbar to reflect player health
-          healthBar.SetHealth(m_PlayerHealth);
-          if (m_PlayerHealth <= 0)
-          {
-            //sends player to a game over screen when they die
-            FindObjectOfType<GameManager>().EndGame();
-          }
-        }
-
-        //increases the player's health (usually due to them collecting a smoothie)
-        void IncreaseHealth(Collider other)
-        {
-          m_PlayerHealth += 5;
-          //adjusts healthbar to reflect player health
-          healthBar.SetHealth(m_PlayerHealth);
-
-        }
 
         ////////////////////////////////////////////////////////////////////////
         //  BELOW ARE SCRIPTS THAT CAME WITH THE DEFAULT CONTROLLER           //

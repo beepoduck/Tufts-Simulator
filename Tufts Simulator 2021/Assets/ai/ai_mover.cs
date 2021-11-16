@@ -9,8 +9,6 @@ using UnityStandardAssets.Characters.FirstPerson;
  {
 
      public Transform Player;
-     //public GameObject playerc;
-     //private FirstPersonController fps_script;
      public CapsuleCollider playerCollider;
      public CapsuleCollider physicsCollider;
      public int xp_to_give = 10;
@@ -19,9 +17,7 @@ using UnityStandardAssets.Characters.FirstPerson;
      float MinDist = 2;
      bool attacking = false;
      bool canattack = true;
-     bool canbeattacked = true;
      int ai_health = 10;
-     // int player_xp;
 
      void Start()
      {
@@ -48,7 +44,7 @@ using UnityStandardAssets.Characters.FirstPerson;
          //if ai is close enough to player to attack them
          else if (canattack && !attacking && Vector3.Distance(transform.position, Player.position) <= MinDist)
          {
-           StartCoroutine(ExpandHitbox());
+           FindObjectOfType<FirstPersonController>().DamagePlayer(1);
            StartCoroutine(waittoattack());
          }
      }
@@ -57,7 +53,7 @@ using UnityStandardAssets.Characters.FirstPerson;
      // (checks if the player punches this ai)
      private void OnTriggerEnter(Collider other)
      {
-       if(canbeattacked && other.gameObject.tag == "Weapon")
+       if(other.gameObject.tag == "Weapon")
        {
          ReduceHealth(other);
        }
@@ -70,24 +66,10 @@ using UnityStandardAssets.Characters.FirstPerson;
        ai_health -= 5;
        if (ai_health <= 0)
        {
-         //fps_script = playerc.GetComponent<FirstPersonController>();
-         //fps_script.m_PlayerXP += 5;
+         //if the ai dies, it gives xp to the player, and deletes itself
          FindObjectOfType<FirstPersonController>().addXP(10);
          Object.Destroy(this.gameObject);
        }
-       StartCoroutine(waittobeattacked());
-     }
-
-     //The enemy will expand its hitbox for a frame so that it overlaps the player's hitbox
-     //This causes the player to take damage (by function in firstpersoncontroller script)
-     IEnumerator ExpandHitbox()
-     {
-       attacking = true;
-       //playerCollider = gameObject.GetComponent <CapsuleCollider>();
-       playerCollider.radius += 3;
-       yield return new WaitForFixedUpdate();
-       playerCollider.radius -= 3;
-       attacking = false;
      }
 
      //These 2 functions basically just makes the script wait 1 second before proceeding
@@ -97,12 +79,4 @@ using UnityStandardAssets.Characters.FirstPerson;
        yield return new WaitForSeconds(1);
        canattack = true;
      }
-
-     IEnumerator waittobeattacked()
-     {
-       canbeattacked = false;
-       yield return new WaitForSeconds(1);
-       canbeattacked = true;
-     }
-
 }

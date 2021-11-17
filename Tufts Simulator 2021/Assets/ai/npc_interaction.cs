@@ -55,6 +55,13 @@ public class npc_interaction : MonoBehaviour
 
     public void FreePlayer()
     {
+      StartCoroutine(PlayerBFree());
+    }
+
+    IEnumerator PlayerBFree()
+    {
+      Time.timeScale = 0.1f;
+      yield return new WaitForFixedUpdate();
       Time.timeScale = 1;
       Cursor.visible = false;
       Cursor.lockState = CursorLockMode.Locked;

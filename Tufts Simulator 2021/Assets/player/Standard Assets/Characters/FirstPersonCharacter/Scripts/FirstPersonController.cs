@@ -91,7 +91,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             //trigger for punch animation and sound
             //trigger for punch damage is in FistPunches.cs amd AIMover.cs
-            if (canattack && Input.GetMouseButtonDown(0) && Time.timeScale > 0)
+            if (canattack && Input.GetMouseButtonDown(0) && Time.timeScale == 1)
             {
                 StartCoroutine(Punch());
             }

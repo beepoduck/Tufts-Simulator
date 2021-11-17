@@ -18,11 +18,15 @@ using UnityStandardAssets.Characters.FirstPerson;
      bool attacking = false;
      bool canattack = true;
      int ai_health = 10;
+     
+     public HealthBar2 healthBar;
 
      void Start()
      {
        playerCollider = gameObject.GetComponent <CapsuleCollider>();
        playerCollider.enabled = true;
+       
+       healthBar.SetMaxHealth(ai_health);
      }
 
      void Update()
@@ -64,6 +68,7 @@ using UnityStandardAssets.Characters.FirstPerson;
      void ReduceHealth(Collider other)
      {
        ai_health -= 5;
+       healthBar.SetHealth(ai_health);
        if (ai_health <= 0)
        {
          //if the ai dies, it gives xp to the player, and deletes itself

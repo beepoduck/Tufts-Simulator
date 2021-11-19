@@ -126,6 +126,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //sends player to a game over screen when they die
             FindObjectOfType<GameManager>().EndGame();
           }
+
         }
 
         //increases the player's health (usually due to them collecting a smoothie)

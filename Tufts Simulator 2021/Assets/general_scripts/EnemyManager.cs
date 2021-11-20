@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnNewEnemy();
+      //Debug.Log("Spawner Initiated")
     }
 
     void OnEnable()
@@ -23,7 +23,7 @@ public class EnemyManager : MonoBehaviour
     }
 
 
-    void SpawnNewEnemy() {
+    public void SpawnNewEnemy() {
 
         int randomNumber = Mathf.RoundToInt(Random.Range(0f, m_SpawnPoints.Length-1));
         Debug.Log("spawning new enemy");

@@ -7,6 +7,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 
  public class ai_mover : MonoBehaviour
  {
+     public delegate void EnemyKilled();
+     public static event EnemyKilled OnEnemyKilled;
 
      public Transform Player;
      public CapsuleCollider playerCollider;
@@ -23,12 +25,14 @@ using UnityStandardAssets.Characters.FirstPerson;
 
      void Start()
      {
-       playerCollider = gameObject.GetComponent <CapsuleCollider>();
-       playerCollider.enabled = true;
-       
-       healthBar.SetMaxHealth(ai_health);
+       setUp();
      }
 
+    void setUp() {
+        playerCollider = gameObject.GetComponent <CapsuleCollider>();
+        playerCollider.enabled = true;
+        healthBar.SetMaxHealth(ai_health);
+    }
      void Update()
      {
          //makes ai look at player from start
@@ -73,7 +77,13 @@ using UnityStandardAssets.Characters.FirstPerson;
        {
          //if the ai dies, it gives xp to the player, and deletes itself
          FindObjectOfType<FirstPersonController>().addXP(10);
-         Object.Destroy(this.gameObject);
+
+           if (OnEnemyKilled != null)
+            {
+                Debug.Log("dying");
+                OnEnemyKilled();
+            }
+         // Object.Destroy(this.gameObject);
        }
      }
 

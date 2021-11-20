@@ -172,7 +172,7 @@ MonoBehaviour:
   playerCollider: {fileID: 5245112774028371828}
   physicsCollider: {fileID: 0}
   xp_to_give: 10
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 3129809524304714630}
 --- !u!1 &5245112774771104689
 GameObject:
   m_ObjectHideFlags: 0

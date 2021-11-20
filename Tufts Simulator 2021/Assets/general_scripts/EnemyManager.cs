@@ -1,19 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
-public class EnemyController : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
-    public delegate void EnemyKilled();
-    public static event EnemyKilled OnEnemyKilled;
 
-    public void die()
+    public Transform[] m_SpawnPoints;
+    public GameObject enemyai;
+
+    // Start is called before the first frame update
+    void Start()
     {
+        SpawnNewEnemy();
+    }
 
-        if(OnEnemyKilled != null)
-        {
-            OnEnemyKilled();
-        }
+    void OnEnable()
+    {
+        ai_mover.OnEnemyKilled += SpawnNewEnemy;
+        Debug.Log("spawning");
+    }
+
+
+    void SpawnNewEnemy() {
+
+        int randomNumber = Mathf.RoundToInt(Random.Range(0f, m_SpawnPoints.Length-1));
+        Debug.Log("spawning new enemy");
+        Instantiate(enemyai, m_SpawnPoints[randomNumber].transform.position, Quaternion.identity);
     }
 
 }

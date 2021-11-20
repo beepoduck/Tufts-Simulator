@@ -7,9 +7,6 @@ using UnityStandardAssets.Characters.FirstPerson;
 
  public class ai_mover : MonoBehaviour
  {
-     public delegate void EnemyKilled();
-     public static event EnemyKilled OnEnemyKilled;
-
      public Transform Player;
      public CapsuleCollider playerCollider;
      public CapsuleCollider physicsCollider;
@@ -76,15 +73,10 @@ using UnityStandardAssets.Characters.FirstPerson;
        if (ai_health <= 0)
        {
          //if the ai dies, it gives xp to the player, and deletes itself
-         FindObjectOfType<FirstPersonController>().addXP(10);
-
-           if (OnEnemyKilled != null)
-            {
-                Debug.Log("dying");
-                FindObjectOfType<EnemyManager>().SpawnNewEnemy();
-                Object.Destroy(this.gameObject);
-            }
-       }
+        FindObjectOfType<FirstPersonController>().addXP(10);
+        FindObjectOfType<EnemyManager>().SpawnNewEnemy();
+        Object.Destroy(this.gameObject);
+        }        
      }
 
      //These 2 functions basically just makes the script wait 1 second before proceeding

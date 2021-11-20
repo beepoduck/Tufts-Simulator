@@ -13,21 +13,12 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      //Debug.Log("Spawner Initiated")
-    }
-
-    void OnEnable()
-    {
-        ai_mover.OnEnemyKilled += SpawnNewEnemy;
-        Debug.Log("spawning");
     }
 
 
     public void SpawnNewEnemy() {
-
-        int randomNumber = Mathf.RoundToInt(Random.Range(0f, m_SpawnPoints.Length-1));
-        Debug.Log("spawning new enemy");
-        Instantiate(enemyai, m_SpawnPoints[randomNumber].transform.position, Quaternion.identity);
+        Debug.Log("instantiTING enemy");
+        Instantiate(enemyai, m_SpawnPoints[Random.Range(0, m_SpawnPoints.Length-1)].transform.position, Quaternion.identity);
     }
 
 }

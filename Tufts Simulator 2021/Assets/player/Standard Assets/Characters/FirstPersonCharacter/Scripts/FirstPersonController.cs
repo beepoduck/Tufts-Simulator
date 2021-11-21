@@ -117,6 +117,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
           m_PlayerXP += XP;
         }
 
+        public int GetXP()
+        {
+          return m_PlayerXP;
+        }
+
         public void DamagePlayer(int Damage)
         {
           m_PlayerHealth -= Damage;

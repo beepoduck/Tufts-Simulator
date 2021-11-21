@@ -76,7 +76,7 @@ using UnityStandardAssets.Characters.FirstPerson;
         FindObjectOfType<FirstPersonController>().addXP(10);
         FindObjectOfType<EnemyManager>().SpawnNewEnemy();
         Object.Destroy(this.gameObject);
-        }        
+        }
      }
 
      //These 2 functions basically just makes the script wait 1 second before proceeding

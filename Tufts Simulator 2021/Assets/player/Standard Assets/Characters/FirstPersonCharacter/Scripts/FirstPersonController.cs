@@ -54,6 +54,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private bool canattack;
         private AudioSource m_AudioSource;
+        private int bosses_defeated = 0;
 
         public HealthBar healthBar;
 
@@ -112,14 +113,28 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
 
+        //call this function to add xp to the player (i.e. when they kill an enemy)
         public void addXP(int XP)
         {
           m_PlayerXP += XP;
         }
 
+        //call this function to see how much XP the player has
         public int GetXP()
         {
           return m_PlayerXP;
+        }
+
+        //call this function every time a boss is defeated
+        public void SetBossesDefeated()
+        {
+          bosses_defeated += 1;
+        }
+
+        //call this function to see how many of the bosses are defeated (out of 4)
+        public int GetBossesDefeated()
+        {
+          return bosses_defeated;
         }
 
         public void DamagePlayer(int Damage)

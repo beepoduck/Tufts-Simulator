@@ -10,13 +10,22 @@ using UnityStandardAssets.Characters.FirstPerson;
      public Transform Player;
      public CapsuleCollider playerCollider;
      public CapsuleCollider physicsCollider;
-     public int xp_to_give = 10;
+     public int xp_to_give;
+     public float ai_health;
+     public int ai_damage;
+     //for non bosses this should be 1
+     public int ai_attackSpeed;
+     public bool is_boss;
+     //for non bosses this should be 10
+     public int MaxDist;
+     //for non bosses this should be 2
+     public float MinDist;
+     public Text defeated_text;
      int MoveSpeed = 4;
-     int MaxDist = 10;
-     float MinDist = 2;
      bool attacking = false;
      bool canattack = true;
-     int ai_health = 10;
+     private int player_xp;
+     private float player_damage;
 
      //public HealthBar2 healthBar;
 
@@ -49,7 +58,7 @@ using UnityStandardAssets.Characters.FirstPerson;
          //if ai is close enough to player to attack them
          else if (canattack && !attacking && Vector3.Distance(transform.position, Player.position) <= MinDist)
          {
-           FindObjectOfType<FirstPersonController>().DamagePlayer(1);
+           FindObjectOfType<FirstPersonController>().DamagePlayer(ai_damage);
            StartCoroutine(waittoattack());
          }
      }
@@ -60,22 +69,43 @@ using UnityStandardAssets.Characters.FirstPerson;
      {
        if(other.gameObject.tag == "Weapon")
        {
+         player_damage = CalculateDamage();
          ReduceHealth(other);
        }
+     }
+
+     //This function calculates how much damage the player should do per hit
+     // based on their level / XP
+     float CalculateDamage()
+     {
+       player_xp = FindObjectOfType<FirstPersonController>().GetXP();
+       return (5 + (player_xp / 10));
+
      }
 
      //this function actually removes health from ai, then kills them if they have
      // no health by deleting them from the game
      void ReduceHealth(Collider other)
      {
-       ai_health -= 5;
+       ai_health -= player_damage;
        //healthBar.SetHealth(ai_health);
        if (ai_health <= 0)
        {
-         //if the ai dies, it gives xp to the player, and deletes itself
-        FindObjectOfType<FirstPersonController>().addXP(10);
-        FindObjectOfType<EnemyManager>().SpawnNewEnemy();
-        Object.Destroy(this.gameObject);
+         //if the ai dies, it gives xp to the player
+        FindObjectOfType<FirstPersonController>().addXP(xp_to_give);
+         //if the ai was a boss enemy, we display info
+         if(is_boss)
+         {
+           defeated_text.text = $"You Defeated This Boss and Were Rewarded {xp_to_give} XP!";
+           FindObjectOfType<FirstPersonController>().SetBossesDefeated();
+           StartCoroutine(DisplayDefeatedText());
+           //insert some function we'll call when a boss dies
+           // (win screen? add to quest completion? ...)
+         } else {
+           //if it's not a boss enemy, we'll just respawn it.
+           FindObjectOfType<EnemyManager>().SpawnNewEnemy();
+           Object.Destroy(this.gameObject);
+         }
         }
      }
 
@@ -83,7 +113,22 @@ using UnityStandardAssets.Characters.FirstPerson;
      IEnumerator waittoattack()
      {
        canattack = false;
-       yield return new WaitForSeconds(1);
+       yield return new WaitForSeconds(ai_attackSpeed);
        canattack = true;
+     }
+
+     IEnumerator DisplayDefeatedText()
+     {
+       //displays winning text on player's screen
+       defeated_text.enabled = true;
+       //temporarily moves the enemy to reeeeeeeallly far away
+       // (can't just delete the enemy yet because there's more script to run)
+       transform.position = new Vector3(-999999, -9999999, -99999);
+       //keeps winning text on screen for 3 seconds
+       yield return new WaitForSeconds(3);
+       //gets rid of winning text
+       defeated_text.enabled = false;
+       //destroys this object once there's no more code to run
+       Object.Destroy(this.gameObject);
      }
 }

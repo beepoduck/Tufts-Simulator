@@ -8,18 +8,18 @@ using UnityStandardAssets.Characters.FirstPerson;
  public class ai_mover : MonoBehaviour
  {
      public Transform Player;
-     public CapsuleCollider playerCollider;
-     public CapsuleCollider physicsCollider;
-     public int xp_to_give;
-     public float ai_health;
-     public int ai_damage;
+     public Collider playerCollider;
+     public Collider physicsCollider;
+     public int xp_to_give = 10;
+     public float ai_health = 20;
+     public int ai_damage = 5;
      //for non bosses this should be 1
-     public int ai_attackSpeed;
+     public int ai_attackSpeed = 1;
      public bool is_boss;
      //for non bosses this should be 10
-     public int MaxDist;
+     public int MaxDist = 10;
      //for non bosses this should be 2
-     public float MinDist;
+     public float MinDist = 2;
      public Text defeated_text;
      int MoveSpeed = 4;
      bool attacking = false;
@@ -31,14 +31,12 @@ using UnityStandardAssets.Characters.FirstPerson;
 
      void Start()
      {
-       setUp();
+      Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+      // playerCollider = gameObject.GetComponent<Collider>();
+      // physicsCollider = gameObject.GetComponentInChildren<Collider>();
+      playerCollider.enabled = true;
      }
 
-    void setUp() {
-        playerCollider = gameObject.GetComponent <CapsuleCollider>();
-        playerCollider.enabled = true;
-        //healthBar.SetMaxHealth(ai_health);
-    }
      void Update()
      {
          //makes ai look at player from start

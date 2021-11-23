@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Temp_Menu.unity
     guid: b82eaca6d80e847eabd76cf3d11149ea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BrettScene.unity
     guid: 7b248df88681fcb42a8726de9d43bd7c
+  - enabled: 1
+    path: Assets/Scenes/Tisch.unity
+    guid: f08e7b2bc4c40414d85028c6a290aa2a
   - enabled: 1
     path: Assets/Scenes/Map.unity
     guid: 6d41088f2ff024ce0bbff6530a2b89d6

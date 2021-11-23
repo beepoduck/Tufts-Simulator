@@ -15,11 +15,11 @@ public class SC_MainMenu : MonoBehaviour
       Cursor.lockState = CursorLockMode.None;
     }
 
-    public void PlayNowButton()
+    public void Tisch()
     {
         Cursor.visible = false;
         // Play Now Button has been pressed, here you can initialize your game (For example Load a Scene called GameLevel etc.)
-        SceneManager.LoadScene("BrettScene");
+        SceneManager.LoadScene("Tisch");
     }
 
     public void MapButton()

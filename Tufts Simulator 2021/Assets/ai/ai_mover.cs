@@ -32,7 +32,7 @@ using UnityStandardAssets.Characters.FirstPerson;
      void Start()
      {
       // set health bar max
-      healthBar.SetMaxHealth(ai_health);
+      FindObjectOfType<HealthBar>().SetMaxHealth(ai_health);
       
       Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
       // playerCollider = gameObject.GetComponent<Collider>();
@@ -42,7 +42,6 @@ using UnityStandardAssets.Characters.FirstPerson;
 
      void Update()
      {
-         Debug.Log("Transform:" + Player);
          //makes ai look at player from start
          transform.LookAt(Player);
          //if ai is close enough to player to notice player
@@ -91,6 +90,7 @@ using UnityStandardAssets.Characters.FirstPerson;
      {
        ai_health -= player_damage;
        // update health
+       Debug.Log("AI HEALTH - " + ai_health);
        healthBar.SetHealth(ai_health);
        if (ai_health <= 0)
        {

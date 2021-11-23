@@ -27,10 +27,13 @@ using UnityStandardAssets.Characters.FirstPerson;
      private int player_xp;
      private float player_damage;
 
-     //public HealthBar2 healthBar;
+     public HealthBar2 healthBar;
 
      void Start()
      {
+      // set health bar max
+      healthBar.SetMaxHealth(ai_health);
+      
       Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
       // playerCollider = gameObject.GetComponent<Collider>();
       // physicsCollider = gameObject.GetComponentInChildren<Collider>();
@@ -39,6 +42,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
      void Update()
      {
+         Debug.Log("Transform:" + Player);
          //makes ai look at player from start
          transform.LookAt(Player);
          //if ai is close enough to player to notice player
@@ -86,7 +90,8 @@ using UnityStandardAssets.Characters.FirstPerson;
      void ReduceHealth(Collider other)
      {
        ai_health -= player_damage;
-       //healthBar.SetHealth(ai_health);
+       // update health
+       healthBar.SetHealth(ai_health);
        if (ai_health <= 0)
        {
          //if the ai dies, it gives xp to the player

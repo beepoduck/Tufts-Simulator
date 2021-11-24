@@ -26,18 +26,22 @@ using UnityStandardAssets.Characters.FirstPerson;
      bool canattack = true;
      private int player_xp;
      private float player_damage;
+     private Vector3 initialPosition;
+     private float initialHealth;
 
-     public HealthBar2 healthBar;
+     public HealthBar healthBar;
 
      void Start()
      {
-      // set health bar max
-      FindObjectOfType<HealthBar>().SetMaxHealth(ai_health);
+      // set health bar max\
+      healthBar.SetMaxHealth(ai_health);
       
       Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
       // playerCollider = gameObject.GetComponent<Collider>();
       // physicsCollider = gameObject.GetComponentInChildren<Collider>();
       playerCollider.enabled = true;
+      initialPosition = transform.position;
+      initialHealth = ai_health;
      }
 
      void Update()
@@ -106,8 +110,7 @@ using UnityStandardAssets.Characters.FirstPerson;
            // (win screen? add to quest completion? ...)
          } else {
            //if it's not a boss enemy, we'll just respawn it.
-           FindObjectOfType<EnemyManager>().SpawnNewEnemy();
-           Object.Destroy(this.gameObject);
+           StartCoroutine(EnemyRespawn());
          }
         }
      }
@@ -133,5 +136,13 @@ using UnityStandardAssets.Characters.FirstPerson;
        defeated_text.enabled = false;
        //destroys this object once there's no more code to run
        Object.Destroy(this.gameObject);
+     }
+     
+     IEnumerator EnemyRespawn()
+     {
+         transform.position = new Vector3(-999999, -9999999, -99999);
+         ai_health = initialHealth;
+         yield return new WaitForSeconds(1);
+         transform.position = initialPosition;
      }
 }

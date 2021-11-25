@@ -13,17 +13,14 @@ using UnityStandardAssets.Characters.FirstPerson;
      public int xp_to_give = 10;
      public float ai_health = 20;
      public int ai_damage = 5;
-     //for non bosses this should be 1
      public int ai_attackSpeed = 1;
-     public bool is_boss;
-     //for non bosses this should be 10
      public int MaxDist = 10;
-     //for non bosses this should be 2
      public float MinDist = 2;
      public Text defeated_text;
-     int MoveSpeed = 4;
-     bool attacking = false;
-     bool canattack = true;
+     
+     private int MoveSpeed = 4;
+     private bool attacking = false;
+     private bool canattack = true;
      private int player_xp;
      private float player_damage;
      private Vector3 initialPosition;
@@ -36,10 +33,11 @@ using UnityStandardAssets.Characters.FirstPerson;
       // set health bar max\
       healthBar.SetMaxHealth(ai_health);
       
+      
       Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
-      // playerCollider = gameObject.GetComponent<Collider>();
-      // physicsCollider = gameObject.GetComponentInChildren<Collider>();
-      playerCollider.enabled = true;
+      
+      //We store the initial position ad health so that when we respawn the enemy, 
+      //    it reverts to its true original state
       initialPosition = transform.position;
       initialHealth = ai_health;
      }
@@ -48,6 +46,7 @@ using UnityStandardAssets.Characters.FirstPerson;
      {
          //makes ai look at player from start
          transform.LookAt(Player);
+         
          //if ai is close enough to player to notice player
          if (Vector3.Distance(transform.position, Player.position) <= MaxDist && Vector3.Distance(transform.position, Player.position) >= MinDist)
          {
@@ -78,7 +77,7 @@ using UnityStandardAssets.Characters.FirstPerson;
          ReduceHealth(other);
        }
      }
-
+     
      //This function calculates how much damage the player should do per hit
      // based on their level / XP
      float CalculateDamage()
@@ -94,25 +93,13 @@ using UnityStandardAssets.Characters.FirstPerson;
      {
        ai_health -= player_damage;
        // update health
-       Debug.Log("AI HEALTH - " + ai_health);
        healthBar.SetHealth(ai_health);
        if (ai_health <= 0)
        {
-         //if the ai dies, it gives xp to the player
-        FindObjectOfType<FirstPersonController>().addXP(xp_to_give);
-         //if the ai was a boss enemy, we display info
-         if(is_boss)
-         {
-           defeated_text.text = $"You Defeated This Boss and Were Rewarded {xp_to_give} XP!";
-           FindObjectOfType<FirstPersonController>().SetBossesDefeated();
-           StartCoroutine(DisplayDefeatedText());
-           //insert some function we'll call when a boss dies
-           // (win screen? add to quest completion? ...)
-         } else {
-           //if it's not a boss enemy, we'll just respawn it.
-           StartCoroutine(EnemyRespawn());
-         }
-        }
+             //if the ai dies, it gives xp to the player
+            FindObjectOfType<FirstPersonController>().addXP(xp_to_give);
+            StartCoroutine(EnemyRespawn());
+       }
      }
 
      //These 2 functions basically just makes the script wait 1 second before proceeding
@@ -121,21 +108,6 @@ using UnityStandardAssets.Characters.FirstPerson;
        canattack = false;
        yield return new WaitForSeconds(ai_attackSpeed);
        canattack = true;
-     }
-
-     IEnumerator DisplayDefeatedText()
-     {
-       //displays winning text on player's screen
-       defeated_text.enabled = true;
-       //temporarily moves the enemy to reeeeeeeallly far away
-       // (can't just delete the enemy yet because there's more script to run)
-       transform.position = new Vector3(-999999, -9999999, -99999);
-       //keeps winning text on screen for 3 seconds
-       yield return new WaitForSeconds(3);
-       //gets rid of winning text
-       defeated_text.enabled = false;
-       //destroys this object once there's no more code to run
-       Object.Destroy(this.gameObject);
      }
      
      IEnumerator EnemyRespawn()

@@ -40,16 +40,15 @@ public class FistPunches : MonoBehaviour
       //enables collider so enemy can take damage from it
       collider.enabled = true;
       //moves the collider forwards to where the player is looking
-      transform.position += transform.forward * 4;
+      transform.position += transform.forward * 3;
       //expands collider to make sure it's big enough to hit enemy infront of you
-      collider.radius += 5;
+      collider.radius += 3;
       //waits until game can register there's a collision
-      //yield return new WaitForFixedUpdate();
-      yield return new WaitForSeconds(1);
+      yield return new WaitForFixedUpdate();
       //everything below here just removes changes from first half of function,
       //  now that damage has been taken, the fist can be "removed" until used again
-      collider.radius -= 5;
-      transform.position -= transform.forward * 4;
+      collider.radius -= 3;
+      transform.position -= transform.forward * 3;
       collider.enabled = false;
     }
 

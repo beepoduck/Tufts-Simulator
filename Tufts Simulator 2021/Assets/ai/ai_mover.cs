@@ -11,7 +11,7 @@ using UnityStandardAssets.Characters.FirstPerson;
      public Collider playerCollider;
      public Collider physicsCollider;
      public int xp_to_give = 10;
-     public float ai_health = 20;
+     public float ai_health = 100;
      public int ai_damage = 5;
      //for non bosses this should be 1
      public int ai_attackSpeed = 1;
@@ -42,7 +42,6 @@ using UnityStandardAssets.Characters.FirstPerson;
 
      void Update()
      {
-         Debug.Log("Transform:" + Player);
          //makes ai look at player from start
          transform.LookAt(Player);
          //if ai is close enough to player to notice player

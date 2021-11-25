@@ -99,10 +99,11 @@ MonoBehaviour:
   ai_health: 20
   ai_damage: 5
   ai_attackSpeed: 1
+  is_boss: 0
   MaxDist: 10
   MinDist: 2
   defeated_text: {fileID: 0}
-  healthBar: {fileID: 2806767629808453965}
+  healthBar: {fileID: 8963065686448520440}
 --- !u!114 &8963065686448520440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,17 +570,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2806767629808453965 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 136928741188986939, guid: 976a8bec391554b92a764b9f44c6758d, type: 3}
-  m_PrefabInstance: {fileID: 2816389959950279030}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3720e854972447d1aa270f267370a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2806767628794285957 stripped

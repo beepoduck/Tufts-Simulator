@@ -685,7 +685,6 @@ MonoBehaviour:
   MaxDist: 10
   MinDist: 2
   defeated_text: {fileID: 0}
-  healthBar: {fileID: 831613591}
 --- !u!136 &282653581
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -769,7 +768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &284201799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,7 +792,6 @@ MonoBehaviour:
   MaxDist: 20
   MinDist: 7
   defeated_text: {fileID: 1417242555}
-  healthBar: {fileID: 0}
 --- !u!136 &284201800
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1712,17 +1710,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742886372}
   m_CullTransparentMesh: 1
---- !u!114 &831613591 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8963065686448520440, guid: 4a838ba692659ad41b152ddd8f07559f, type: 3}
-  m_PrefabInstance: {fileID: 5469026626877265762}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40106c82d5b45402382eb53bd86a79ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &848405767
 GameObject:
   m_ObjectHideFlags: 0

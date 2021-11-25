@@ -9,6 +9,7 @@ public class npc_interaction : MonoBehaviour
     public Dialogue dialogue;
     private bool playerhere;
     public Image m_speakto;
+    public SphereCollider sphere;
     // Start is called before the first frame update
     void Start()
     {

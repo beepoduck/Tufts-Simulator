@@ -27,7 +27,7 @@ public class Barrier : MonoBehaviour
         }
         else
         {
-          barrier_text.text = "You Are Not A High Enough Level For This Area Yet\n(Must Have 10 XP)";
+          barrier_text.text = $"You Are Not A High Enough Level For This Area Yet\n(Must Have {xp_needed} XP)";
           StartCoroutine(DisplayBarrierText());
         }
       }

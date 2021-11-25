@@ -12,7 +12,6 @@ public class PauseMenuScript : MonoBehaviour
     {
       if(Input.GetKeyDown(KeyCode.Escape))
         {
-          Debug.Log("ESC PRESSED");
           PauseGame();
         }
     }

@@ -12,7 +12,7 @@ public class BossScript : MonoBehaviour
     public Image m_speakto;
     private bool cantalk = true;
     public SphereCollider sphere;
-    
+
     public Collider playerCollider;
     public Collider physicsCollider;
     public int xp_to_give = 10;
@@ -22,7 +22,9 @@ public class BossScript : MonoBehaviour
     public int MaxDist = 10;
     public float MinDist = 2;
     public Text defeated_text;
-    
+    public AudioClip[] hit_sounds;
+    public AudioSource audioSource;
+
     private bool donetalking = false;
     private int MoveSpeed = 4;
     private bool attacking = false;
@@ -35,7 +37,7 @@ public class BossScript : MonoBehaviour
     void Start()
     {
       playerhere = false;
-      healthBar.SetMaxHealth(ai_health);      
+      healthBar.SetMaxHealth(ai_health);
       Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
 
@@ -121,7 +123,7 @@ public class BossScript : MonoBehaviour
       Cursor.visible = false;
       Cursor.lockState = CursorLockMode.Locked;
     }
-    
+
     public void doneTalking()
     {
         donetalking = true;
@@ -140,6 +142,11 @@ public class BossScript : MonoBehaviour
     // no health by deleting them from the game
     void ReduceHealth(Collider other)
     {
+      if (hit_sounds.Length > 0)
+      {
+        audioSource.clip = hit_sounds[Random.Range(0, hit_sounds.Length)];
+        audioSource.Play();
+      }
       ai_health -= player_damage;
       // update health
       healthBar.SetHealth(ai_health);

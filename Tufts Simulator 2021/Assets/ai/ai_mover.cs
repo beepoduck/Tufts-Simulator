@@ -17,7 +17,9 @@ using UnityStandardAssets.Characters.FirstPerson;
      public int MaxDist = 10;
      public float MinDist = 2;
      public Text defeated_text;
-     
+     public AudioClip[] hit_sounds;
+     public AudioSource audioSource;
+
      private int MoveSpeed = 4;
      private bool attacking = false;
      private bool canattack = true;
@@ -32,11 +34,11 @@ using UnityStandardAssets.Characters.FirstPerson;
      {
       // set health bar max\
       healthBar.SetMaxHealth(ai_health);
-      
-      
+
+
       Player = GameObject.FindWithTag("Player").GetComponent<Transform>();
-      
-      //We store the initial position ad health so that when we respawn the enemy, 
+
+      //We store the initial position ad health so that when we respawn the enemy,
       //    it reverts to its true original state
       initialPosition = transform.position;
       initialHealth = ai_health;
@@ -46,7 +48,7 @@ using UnityStandardAssets.Characters.FirstPerson;
      {
          //makes ai look at player from start
          transform.LookAt(Player);
-         
+
          //if ai is close enough to player to notice player
          if (Vector3.Distance(transform.position, Player.position) <= MaxDist && Vector3.Distance(transform.position, Player.position) >= MinDist)
          {
@@ -77,7 +79,7 @@ using UnityStandardAssets.Characters.FirstPerson;
          ReduceHealth(other);
        }
      }
-     
+
      //This function calculates how much damage the player should do per hit
      // based on their level / XP
      float CalculateDamage()
@@ -91,6 +93,9 @@ using UnityStandardAssets.Characters.FirstPerson;
      // no health by deleting them from the game
      void ReduceHealth(Collider other)
      {
+       audioSource.clip = hit_sounds[Random.Range(0, hit_sounds.Length)];
+       audioSource.Play();
+
        ai_health -= player_damage;
        // update health
        healthBar.SetHealth(ai_health);
@@ -109,7 +114,7 @@ using UnityStandardAssets.Characters.FirstPerson;
        yield return new WaitForSeconds(ai_attackSpeed);
        canattack = true;
      }
-     
+
      IEnumerator EnemyRespawn()
      {
          transform.position = new Vector3(-999999, -9999999, -99999);

@@ -7,6 +7,7 @@ public class DialogueManager : MonoBehaviour
 {
     public Text nameTag;
     public Text dialogueText;
+    public Image dialogueImage;
     public GameObject CanvasObject;
 
     private Queue<string> sentences;
@@ -30,6 +31,8 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue (Dialogue dialogue)
     {
       nameTag.text = dialogue.name;
+      dialogueImage.sprite = dialogue.image;
+      //dialogueImage = dialogue.image;
       sentences.Clear();
       indialogue = true;
       EnableCanvas();

@@ -121,5 +121,6 @@ using UnityStandardAssets.Characters.FirstPerson;
          ai_health = initialHealth;
          yield return new WaitForSeconds(1);
          transform.position = initialPosition;
+         healthBar.SetMaxHealth(ai_health);
      }
 }

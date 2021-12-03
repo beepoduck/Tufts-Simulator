@@ -24,7 +24,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public int initial_XP = 0;
         public int m_PlayerHealth;
         public int m_PlayerXP;
-
+        private bool canShake;
+        private Vector3 originalCameraPos;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
@@ -53,6 +54,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
+        public float _shakeTimer;
+        public float shakeAmount = 0.5f;
         private bool canattack;
         private AudioSource m_AudioSource;
         private int bosses_defeated = 0;
@@ -374,6 +377,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
           }
         }
 
+        public void CameraShakeEffect()
+            {
+                bool canShake = true;
+                Vector3 originalCameraPos = m_Camera.transform.localPosition;
+                _shakeTimer = 2f;
+                Debug.Log("in camera shake function");
+                Debug.Log(_shakeTimer);
+                while (_shakeTimer > 0)
+                {
+                    Debug.Log("while loop");
+                    Debug.Log(Random.insideUnitSphere * shakeAmount);
+                    m_Camera.transform.localPosition = originalCameraPos + Random.insideUnitSphere * shakeAmount;
+                    _shakeTimer -= Time.deltaTime;
+                     Debug.Log(_shakeTimer);
+                }
+
+                _shakeTimer = 0f;
+                m_Camera.transform.localPosition = originalCameraPos;
+                canShake = false;
+             }
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {

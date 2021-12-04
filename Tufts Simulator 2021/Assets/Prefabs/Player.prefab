@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_punch1: {fileID: 8295225726238253698}
   m_punch2: {fileID: 8295225727045202876}
+  showImage: {fileID: 8295225726238253698}
   m_punch1sound: {fileID: 8300000, guid: efc65b9f24c910e46a605ab687ebfab8, type: 3}
   m_punch2sound: {fileID: 8300000, guid: 8a4e745d112cb564fbd0c4e2020b753a, type: 3}
   m_IsWalking: 0
@@ -279,6 +280,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  endgame_text: {fileID: 0}
+  _shakeTimer: 0
+  shakeAmount: 0.5
   healthBar: {fileID: 8284644397622377437}
 --- !u!54 &8349212414441290041
 Rigidbody:

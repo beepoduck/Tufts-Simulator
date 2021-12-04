@@ -14,6 +14,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
     {
         [SerializeField] private Image m_punch1;
         [SerializeField] private Image m_punch2;
+        [SerializeField] private Image showImage;
         [SerializeField] private AudioClip m_punch1sound;
         [SerializeField] private AudioClip m_punch2sound;
         [SerializeField] private bool m_IsWalking;
@@ -379,25 +380,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public void CameraShakeEffect()
             {
-                bool canShake = true;
-                Vector3 originalCameraPos = m_Camera.transform.localPosition;
-                _shakeTimer = 2f;
-                Debug.Log("in camera shake function");
-                Debug.Log(_shakeTimer);
-                while (_shakeTimer > 0)
-                {
-                    Debug.Log("while loop");
-                    Debug.Log(Random.insideUnitSphere * shakeAmount);
-                    m_Camera.transform.localPosition = originalCameraPos + Random.insideUnitSphere * shakeAmount;
-                    _shakeTimer -= Time.deltaTime;
-                     Debug.Log(_shakeTimer);
-                }
 
-                _shakeTimer = 0f;
-                m_Camera.transform.localPosition = originalCameraPos;
-                canShake = false;
-             }
+            showImage.enabled = true;  
+            Debug.Log("in camera shake function");
+            StartCoroutine(BloodFunction());
+            Debug.Log("after");
+          }
 
+       IEnumerator BloodFunction() {
+            Debug.Log("in blood function");
+            yield return new WaitForSeconds(2);
+            showImage.enabled = false;  
+        }
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
             Rigidbody body = hit.collider.attachedRigidbody;

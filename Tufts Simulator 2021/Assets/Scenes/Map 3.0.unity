@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &122651998
 AudioListener:
   m_ObjectHideFlags: 0
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab284307d470d54ba833bbd5cb77338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvasObject: {fileID: 0}
+  CanvasObject: {fileID: 1366022882}
 --- !u!114 &1193984369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +588,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1366022882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8284644399391003315, guid: 65b878d176ce64ea5996a013a6f15ce5, type: 3}
+  m_PrefabInstance: {fileID: 574722253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1717355301
 GameObject:
   m_ObjectHideFlags: 0

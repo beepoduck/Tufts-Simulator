@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
+using UnityStandardAssets.Utility;
 
 
 public class SC_MainMenu : MonoBehaviour
 {
 
     public GameObject MainMenu;
+    [SerializeField] private Image[] tutorial;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +34,8 @@ public class SC_MainMenu : MonoBehaviour
     public void MapButton()
     {
         Cursor.visible = false;
-        SceneManager.LoadScene("Map");
+        Debug.Log("in");
+        StartCoroutine(playTutorial());
     }
 
     public void QuitButton()
@@ -33,4 +43,23 @@ public class SC_MainMenu : MonoBehaviour
         // Quit Game
         Application.Quit();
     }
-}
+
+    IEnumerator playTutorial() {
+       int len = tutorial.Length;
+       Debug.Log("in func");
+
+       for (int i = 0; i < len; i++) {
+            Debug.Log("in loop");
+            yield return new WaitForSeconds(0.1f);
+            tutorial[i].enabled = true;
+            Debug.Log(i);
+            while(!Input.GetKeyDown(KeyCode.Space)) {
+                yield return null;
+            }
+            tutorial[i].enabled = false;
+       }
+        SceneManager.LoadScene("Map");
+    }
+
+
+ }

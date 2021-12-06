@@ -14,7 +14,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
     {
         [SerializeField] private Image m_punch1;
         [SerializeField] private Image m_punch2;
-        [SerializeField] private Image showImage;
+        [SerializeField] private Image bloodImage;
         [SerializeField] private AudioClip m_punch1sound;
         [SerializeField] private AudioClip m_punch2sound;
         [SerializeField] private bool m_IsWalking;
@@ -58,6 +58,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public float _shakeTimer;
         public float shakeAmount = 0.5f;
         private bool canattack;
+        private bool isbloody;
         private AudioSource m_AudioSource;
         private int bosses_defeated = 0;
 
@@ -80,6 +81,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_NextStep = m_StepCycle/2f;
             m_Jumping = false;
             canattack = true;
+            isbloody = false;
             m_AudioSource = GetComponent<AudioSource>();
 			      m_MouseLook.Init(transform , m_Camera.transform);
         }
@@ -208,6 +210,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
           canattack = true;
           m_punch1.enabled = false;
           m_punch2.enabled = false;
+        }
+
+        public void CameraShakeEffect()
+        {
+            //Debug.Log("in camera shake function");
+            StartCoroutine(BloodFunction());
+            //Debug.Log("after");
+        }
+
+       IEnumerator BloodFunction()
+       {
+            //Debug.Log("in blood function");
+            isbloody = true;
+            bloodImage.enabled = true;
+            yield return new WaitForSeconds(1);
+            bloodImage.enabled = false;
+            isbloody = false;
         }
 
 
@@ -362,7 +381,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             // handle speed change to give an fov kick
             // only if the player is going to a run, is running and the fovkick is to be used
-            if (m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0 && canattack)
+            if (m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0 && canattack && !isbloody)
             {
                 StopAllCoroutines();
                 StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
@@ -378,20 +397,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
           }
         }
 
-        public void CameraShakeEffect()
-            {
-
-            showImage.enabled = true;  
-            Debug.Log("in camera shake function");
-            StartCoroutine(BloodFunction());
-            Debug.Log("after");
-          }
-
-       IEnumerator BloodFunction() {
-            Debug.Log("in blood function");
-            yield return new WaitForSeconds(2);
-            showImage.enabled = false;  
-        }
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
             Rigidbody body = hit.collider.attachedRigidbody;

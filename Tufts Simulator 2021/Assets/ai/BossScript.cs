@@ -75,6 +75,7 @@ public class BossScript : MonoBehaviour
             else if (canattack && !attacking && Vector3.Distance(transform.position, Player.position) <= MinDist)
             {
               FindObjectOfType<FirstPersonController>().DamagePlayer(ai_damage);
+              FindObjectOfType<FirstPersonController>().CameraShakeEffect();
               StartCoroutine(waittoattack());
             }
         }
@@ -94,7 +95,7 @@ public class BossScript : MonoBehaviour
       }
       //this detects if the ai has collided with a weapon
       // (checks if the player punches this ai)
-      if(other.gameObject.tag == "Weapon")
+      if(donetalking && other.gameObject.tag == "Weapon")
       {
         player_damage = CalculateDamage();
         ReduceHealth(other);

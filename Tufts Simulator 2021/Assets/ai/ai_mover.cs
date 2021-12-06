@@ -65,7 +65,6 @@ using UnityStandardAssets.Characters.FirstPerson;
          else if (canattack && !attacking && Vector3.Distance(transform.position, Player.position) <= MinDist)
          {
            FindObjectOfType<FirstPersonController>().DamagePlayer(ai_damage);
-           Debug.Log("calling camera shake function");
            FindObjectOfType<FirstPersonController>().CameraShakeEffect();
            StartCoroutine(waittoattack());
          }

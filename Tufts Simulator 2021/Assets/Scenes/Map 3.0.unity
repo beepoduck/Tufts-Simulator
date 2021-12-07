@@ -2180,7 +2180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8443396, g: 1, b: 0.9221961, a: 0.8666667}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6197,7 +6197,7 @@ MonoBehaviour:
     - filler
     - text
     name: Jason
-    image: {fileID: 21300000, guid: c8a6b564dbaa58a4d8a7528bef81eecf, type: 3}
+    image: {fileID: 0}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 1969964793}
   playerCollider: {fileID: 1969964794}

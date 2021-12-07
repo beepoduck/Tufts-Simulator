@@ -47,10 +47,10 @@ public class BossScript : MonoBehaviour
         transform.LookAt(Player);
         if (cantalk && playerhere && Input.GetKeyDown(KeyCode.E))
         {
+          m_speakto.enabled = false;
           Time.timeScale = 0;
           Cursor.visible = true;
           Cursor.lockState = CursorLockMode.None;
-          m_speakto.enabled = false;
           TriggerDialogue();
           cantalk = false;
           sphere.enabled = false;

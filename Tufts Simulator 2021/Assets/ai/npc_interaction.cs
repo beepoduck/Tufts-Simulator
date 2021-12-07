@@ -22,12 +22,11 @@ public class npc_interaction : MonoBehaviour
         transform.LookAt(Player);
         if (playerhere && Input.GetKeyDown(KeyCode.E))
         {
+          m_speakto.enabled = false;
           Time.timeScale = 0;
           Cursor.visible = true;
           Cursor.lockState = CursorLockMode.None;
-          m_speakto.enabled = false;
           TriggerDialogue();
-          m_speakto.enabled = true;
         }
     }
 
@@ -66,6 +65,7 @@ public class npc_interaction : MonoBehaviour
       Time.timeScale = 1;
       Cursor.visible = false;
       Cursor.lockState = CursorLockMode.Locked;
+      m_speakto.enabled = true;
     }
 
 

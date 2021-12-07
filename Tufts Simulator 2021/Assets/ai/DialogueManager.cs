@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     public Image dialogueImage;
     public GameObject CanvasObject;
 
+    public int talkingto = 0;
     private Queue<string> sentences;
     private bool indialogue;
 
@@ -61,7 +62,19 @@ public class DialogueManager : MonoBehaviour
     {
       indialogue = false;
       DisableCanvas();
-      FindObjectOfType<npc_interaction>().FreePlayer();
+      if(talkingto == 0)
+      {
+        FindObjectOfType<npc_interaction>().FreePlayer();
+      }else if (talkingto == 1)
+      {
+        FindObjectOfType<triggerdialogueobject>().EndDialogue();
+        talkingto = 0;
+      }
+    }
+
+    public void SetTalkingTo(int givennumber)
+    {
+      talkingto = givennumber;
     }
 
     void DisableCanvas()

@@ -8,6 +8,7 @@ public class npc_interaction : MonoBehaviour
     public Transform Player;
     public Dialogue dialogue;
     private bool playerhere;
+    private bool enddialogue;
     public Image m_speakto;
     public SphereCollider sphere;
     // Start is called before the first frame update
@@ -57,6 +58,7 @@ public class npc_interaction : MonoBehaviour
     {
       StartCoroutine(PlayerBFree());
     }
+
 
     IEnumerator PlayerBFree()
     {

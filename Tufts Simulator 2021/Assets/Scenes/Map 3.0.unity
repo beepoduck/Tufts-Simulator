@@ -1354,7 +1354,7 @@ MonoBehaviour:
     - Puny Human!
     - Let's See How Strong You Really Are !!!
     name: Boss 1
-    image: {fileID: 21300000, guid: 53c453a8f83c9514e8b4e991168159a0, type: 3}
+    image: {fileID: 21300000, guid: d4ff1138831884745b3e00bf8e357999, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 408122605}
   playerCollider: {fileID: 408122606}
@@ -2773,7 +2773,7 @@ MonoBehaviour:
     - 
     - 
     name: Tony Monaco
-    image: {fileID: 21300000, guid: eca13acc23645ac488e989525db54eb9, type: 3}
+    image: {fileID: 21300000, guid: 7d404f6f7ee340a4bb97841c8f4b680d, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 730459397}
   playerCollider: {fileID: 730459398}
@@ -3461,7 +3461,7 @@ MonoBehaviour:
     - I am not as weak as that other boss you just defeated
     - Bring it on !!!
     name: Boss 2
-    image: {fileID: 21300000, guid: 51e93d491d4c17a4ca5fb3b26c79964e, type: 3}
+    image: {fileID: 21300000, guid: 6b74a04002a0ae242bd6ebf179af2779, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 959965263}
   playerCollider: {fileID: 959965264}
@@ -6875,7 +6875,7 @@ MonoBehaviour:
     - Thanks for Playing Our Game!
     - Now Get Lost!
     name: Ash
-    image: {fileID: 21300000, guid: 544c50c16ba1a0e4ba5c2dccfb801e91, type: 3}
+    image: {fileID: 21300000, guid: 576cf9158ec703a41a3329bbbeb71b89, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 0}
 --- !u!136 &2121876700

@@ -136,7 +136,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public void SetBossesDefeated()
         {
           bosses_defeated += 1;
-          if (bosses_defeated >= 3)
+          if (bosses_defeated >= 4)
           {
               endgame_text.enabled = true;
           }

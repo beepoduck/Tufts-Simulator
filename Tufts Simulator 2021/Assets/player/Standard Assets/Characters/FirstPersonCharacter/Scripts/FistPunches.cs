@@ -44,8 +44,8 @@ public class FistPunches : MonoBehaviour
       //expands collider to make sure it's big enough to hit enemy infront of you
       collider.radius += 5;
       //waits until game can register there's a collision
-      //yield return new WaitForFixedUpdate();
-      yield return new WaitForSeconds(1);
+      yield return new WaitForFixedUpdate();
+      //yield return new WaitForSeconds(1);
       //everything below here just removes changes from first half of function,
       //  now that damage has been taken, the fist can be "removed" until used again
       collider.radius -= 5;

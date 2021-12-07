@@ -24,18 +24,21 @@ public class SC_MainMenu : MonoBehaviour
       Cursor.lockState = CursorLockMode.None;
     }
 
-    public void Tisch()
-    {
-        Cursor.visible = false;
-        // Play Now Button has been pressed, here you can initialize your game (For example Load a Scene called GameLevel etc.)
-        SceneManager.LoadScene("Tisch");
-    }
+    // public void Tisch()
+    // {
+    //     Cursor.visible = false;
+    //     // Play Now Button has been pressed, here you can initialize your game (For example Load a Scene called GameLevel etc.)
+    //     SceneManager.LoadScene("Tisch");
+    // }
 
     public void MapButton()
     {
-        Cursor.visible = false;
-        Debug.Log("in");
-        StartCoroutine(playTutorial());
+        // Cursor.visible = false;
+        // Debug.Log("in");
+        // StartCoroutine(playTutorial());
+            Cursor.visible = false;
+            // Play Now Button has been pressed, here you can initialize your game (For example Load a Scene called GameLevel etc.)
+            SceneManager.LoadScene("Map 3.0");
     }
 
     public void QuitButton()
@@ -44,22 +47,22 @@ public class SC_MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    IEnumerator playTutorial() {
-       int len = tutorial.Length;
-       Debug.Log("in func");
-
-       for (int i = 0; i < len; i++) {
-            Debug.Log("in loop");
-            yield return new WaitForSeconds(0.1f);
-            tutorial[i].enabled = true;
-            Debug.Log(i);
-            while(!Input.GetKeyDown(KeyCode.Space)) {
-                yield return null;
-            }
-            tutorial[i].enabled = false;
-       }
-        SceneManager.LoadScene("Map");
-    }
+    // IEnumerator playTutorial() {
+    //    int len = tutorial.Length;
+    //    Debug.Log("in func");
+    // 
+    //    for (int i = 0; i < len; i++) {
+    //         Debug.Log("in loop");
+    //         yield return new WaitForSeconds(0.1f);
+    //         tutorial[i].enabled = true;
+    //         Debug.Log(i);
+    //         while(!Input.GetKeyDown(KeyCode.Space)) {
+    //             yield return null;
+    //         }
+    //         tutorial[i].enabled = false;
+    //    }
+    //     SceneManager.LoadScene("Map");
+    // }
 
 
  }

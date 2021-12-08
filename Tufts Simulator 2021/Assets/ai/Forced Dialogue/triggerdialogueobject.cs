@@ -22,6 +22,7 @@ public class triggerdialogueobject : MonoBehaviour
     {
       FindObjectOfType<DialogueManager>().SetTalkingTo(1);
       FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+      sphere.enabled = false;
     }
 
     public void EndDialogue()
@@ -36,9 +37,6 @@ public class triggerdialogueobject : MonoBehaviour
       Time.timeScale = 1;
       Cursor.visible = false;
       Cursor.lockState = CursorLockMode.Locked;
-      //The following line gets rid of the ability to trigger this dialogue again
-      // Remove if the player should be able to infinitely trigger this dialogue
-      sphere.enabled = false;
     }
 
 }

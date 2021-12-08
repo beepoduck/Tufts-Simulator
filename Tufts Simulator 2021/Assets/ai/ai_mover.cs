@@ -20,6 +20,7 @@ using UnityStandardAssets.Characters.FirstPerson;
      public AudioClip[] hit_sounds;
      public AudioSource audioSource;
      public int MoveSpeed = 4;
+     public int respawnTimer = 10;
 
      private bool attacking = false;
      private bool canattack = true;
@@ -120,7 +121,7 @@ using UnityStandardAssets.Characters.FirstPerson;
      {
          transform.position = new Vector3(-999999, -9999999, -99999);
          ai_health = initialHealth;
-         yield return new WaitForSeconds(10);
+         yield return new WaitForSeconds(respawnTimer);
          transform.position = initialPosition;
          healthBar.SetMaxHealth(ai_health);
      }

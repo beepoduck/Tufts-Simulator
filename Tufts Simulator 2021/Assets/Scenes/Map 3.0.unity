@@ -5019,9 +5019,9 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - 
-    - 
-    - 
+    - Hello... member of the Tufts community
+    - I write to you with sad news...
+    - ...that I must beat you to the ground!
     name: Tony Monaco
     image: {fileID: 21300000, guid: 7d404f6f7ee340a4bb97841c8f4b680d, type: 3}
   m_speakto: {fileID: 304918576}

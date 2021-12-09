@@ -7162,9 +7162,12 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Dude, The Acorn Head Woke Up And Is On Tisch Roof Right Now
-    - I Don't Know What Happened, But He's Totally Pissed
-    - Somebody Needs To Go Take Care Of Him
+    - Dude, the acorn head is totally freaking out on Tisch roof right now
+    - He's pounding all the squirrels around him into the ground. I don't know why
+      he's so pissed...
+    - '...or actually, that might have been my fault. Someone dared me to pee on
+      him. '
+    - Sorry...
     name: Helpful Sophomore
     image: {fileID: 21300000, guid: 933a84dc0462c634e909fc2057242273, type: 3}
   m_speakto: {fileID: 304918576}
@@ -9181,8 +9184,9 @@ MonoBehaviour:
     sentences:
     - Be Careful, There Are A Few Freshmen Right In Front Of Tisch Roof
     - They Keep Trying To Ask Me Where Lax House Is
-    - They're Really Weak, But They're Also Terrifyingly Fast
-    - Please Beat Them Up For Me
+    - I don't think they realize that Lax house is actually the most disgusting place
+      of all time
+    - 'The last time I went in there with white shoes, they came out brown. '
     name: Tired CS Major
     image: {fileID: 21300000, guid: 576cf9158ec703a41a3329bbbeb71b89, type: 3}
   m_speakto: {fileID: 304918576}
@@ -14106,9 +14110,9 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Hi Im Ash
-    - Thanks for Playing Our Game!
-    - Now Get Lost!
+    - Hey uh, this is Ash
+    - I don't look like this in real life
+    - Now please leave me alone
     name: Ash
     image: {fileID: 21300000, guid: 576cf9158ec703a41a3329bbbeb71b89, type: 3}
   m_speakto: {fileID: 304918576}

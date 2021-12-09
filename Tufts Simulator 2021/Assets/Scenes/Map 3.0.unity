@@ -2453,9 +2453,10 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Who Dares Awaken Me??
-    - Puny Human!
-    - Let's See How Strong You Really Are !!!
+    - For too long have I laid upon the cold soil. My metal body awakens, yearning
+      for a worthy opponent!
+    - You!
+    - Show me what you got!
     name: Boss 1
     image: {fileID: 21300000, guid: d4ff1138831884745b3e00bf8e357999, type: 3}
   m_speakto: {fileID: 304918576}
@@ -6251,8 +6252,11 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - I am not as weak as that other boss you just defeated
-    - Bring it on !!!
+    - I can still feel the flames of 1975 searing through my body. All that's left
+      of my physical form is my tail, forever on display in Tisch. Humiliating. But
+      I am no Dumbo...
+    - I am JUMBO!
+    - Let's see if you are strong enough to put my weary spirit to rest.
     name: Boss 2
     image: {fileID: 21300000, guid: 6b74a04002a0ae242bd6ebf179af2779, type: 3}
   m_speakto: {fileID: 304918576}
@@ -12835,11 +12839,12 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Hello
-    - filler
-    - text
+    - Welcome player! Prepare to meet your doom!
+    - Oh? You're in my game design class?
+    - I'm afraid I don't recognize you... probably should have turned your camera
+      on during class!!!
     name: Jason
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 491ad04cf4c584fec87ab213bac8dc0a, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 1969964793}
   playerCollider: {fileID: 1969964794}

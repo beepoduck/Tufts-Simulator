@@ -3134,7 +3134,7 @@ GameObject:
   - component: {fileID: 419191743}
   - component: {fileID: 419191742}
   m_Layer: 0
-  m_Name: Quirky Poli Sci Major
+  m_Name: Too many meal swipes
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3170,10 +3170,12 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Woah did you see that smoothie in there?
-    - 'It looks so good. '
-    - Why don't the political science majors get cool cafes in their buildings?
-    name: Helpful Sophomore
+    - Hey let me tell you a secret.
+    - 'The absolute, best drink of all time on Tufts campus is the green one. No,
+      not sour apple, the kale one! '
+    - I know what you're thinking. Ugh. Grinded up veg? But trust me, just go over
+      there and try it. I guarantee it'll perk you right up.
+    name: Person with too many meal swipes
     image: {fileID: 21300000, guid: 53f715a3abff0094eb1842ab94ec55e3, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 0}
@@ -4467,7 +4469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581725932}
   m_LocalRotation: {x: -0, y: -0.8953443, z: -0, w: 0.44537473}
-  m_LocalPosition: {x: 106.5, y: 148.5, z: -165.9}
+  m_LocalPosition: {x: 90.11, y: 148.5, z: -92.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 484245940}
@@ -4489,10 +4491,13 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Hey uh, this is Ash
-    - I don't look like this in real life
-    - Now please leave me alone
-    name: Ash
+    - Eeep!
+    - I was just minding my own business, collecting acorns you know? Then suddenly,
+      the whole ground seemed to rumble! When I looked down, it seemed as though
+      the ground had moved away! My fur was all gone and I couldn't climb into my
+      home anymore!
+    - '...whenever I see my friends they run away from me. '
+    name: Mysterious girl
     image: {fileID: 21300000, guid: 1c0a712650b2541138086db7f5717ccd, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 0}
@@ -6437,11 +6442,11 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Do you go to school here?
-    - 'I''m visiting because I want to ED here. '
-    - Does Tony Monaco always travel with so many body guards?
-    - 'There are just so many. '
-    name: Helpful Sophomore
+    - H-hi! Are you a student at Tufts?
+    - If you're not too busy could I ask you a few questions about your experience?
+    - 'Ok first question: Does Tony Monaco always travel with so many body guards?'
+    - 'second question: how do I stop him from shoving his fist in my face?'
+    name: Prospective student
     image: {fileID: 21300000, guid: 576cf9158ec703a41a3329bbbeb71b89, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 0}
@@ -10476,10 +10481,9 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Kid, what are you doing back here?
-    - You better get back to the main roads
-    - 'There''s nothing going on back here '
-    name: Ash
+    - Yo you here to pickup or somethin'?
+    - ...no? Then get out. Before I make you!
+    name: Sketchy dude
     image: {fileID: 21300000, guid: 53f715a3abff0094eb1842ab94ec55e3, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 0}
@@ -13259,10 +13263,13 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Jeez the Medford campus is crazy!
-    - At the SMFA campus, they know to stay away from the upper classmen.
-    - Do you know why Jumbo is so pissed off over there?
-    name: Helpful Sophomore
+    - B- w- waaa where am I???
+    - I was literally just hanging out in front of the Rhino when it suddenly unrooted
+      itself from the ground and tried to gore me with its horn!
+    - I escaped onto the Tufts bus and next thing you know, I'm on Medford campus
+      getting equally destroyed by a similar but slightly different animal!
+    - Please end my suffering...
+    name: Lost SMFA
     image: {fileID: 21300000, guid: 933a84dc0462c634e909fc2057242273, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 0}
@@ -16098,12 +16105,11 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Hey, I Don't Really Know What's Going On, But......
-    - There's a Gang of Like 5 Freshmen Behind Me. They're Pretty Weak But There's
-      A Whole Lot Of Them.
-    - They're Guarding Some Kind Of Box. I Don't Really Know What it Is But They
-      Say It Will Make Them Stronger?
-    - They're Probably Just Drugs
+    - Um do you see that over there?
+    - Not gonna lie, I'm curious... but it's kinda cringe to approach a group of
+      freshman out of nowhere ya get me?
+    - 'I bet they have something good though. TUSC is always handing out free sh*t
+      to them. '
     name: Confused Econ Major
     image: {fileID: 21300000, guid: 53f715a3abff0094eb1842ab94ec55e3, type: 3}
   m_speakto: {fileID: 304918576}
@@ -16666,9 +16672,9 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Hey uh, this is Ash
-    - I don't look like this in real life
-    - Now please leave me alone
+    - ...Oh hey, um. I'm Ash!
+    - Trust me, I do not look like this in real-life.
+    - Hehe
     name: Ash
     image: {fileID: 21300000, guid: 576cf9158ec703a41a3329bbbeb71b89, type: 3}
   m_speakto: {fileID: 304918576}

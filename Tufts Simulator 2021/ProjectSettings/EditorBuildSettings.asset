@@ -21,9 +21,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Map.unity
     guid: 6d41088f2ff024ce0bbff6530a2b89d6
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 6c9d839ef37fa9e41ac9e16d9f9515de
+  - enabled: 1
     path: Assets/Scenes/Map 3.0.unity
     guid: 00867f37db21b436297e49502ed887bd
   - enabled: 1
     path: Assets/Scenes/DEATHSCENE.unity
     guid: 7e8292ad1cb924f73b5bf92bfc659ecb
+  - enabled: 1
+    path: Assets/Scenes/JumboArena.unity
+    guid: 2b61457b8fa822944ae8a245aa0d3722
+  - enabled: 1
+    path: Assets/Scenes/JasonBossArena.unity
+    guid: ac00233c724338f43a6cf73f91d55d65
+  - enabled: 1
+    path: Assets/Scenes/TonyBossArena.unity
+    guid: 57e7afd43eb7cb6478b68a582f956f84
   m_configObjects: {}

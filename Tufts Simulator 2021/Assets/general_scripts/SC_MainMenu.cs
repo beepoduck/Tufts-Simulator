@@ -38,7 +38,7 @@ public class SC_MainMenu : MonoBehaviour
         // StartCoroutine(playTutorial());
             Cursor.visible = false;
             // Play Now Button has been pressed, here you can initialize your game (For example Load a Scene called GameLevel etc.)
-            SceneManager.LoadScene("Map 3.0");
+            SceneManager.LoadScene("Tutorial");
     }
 
     public void QuitButton()
@@ -50,7 +50,7 @@ public class SC_MainMenu : MonoBehaviour
     // IEnumerator playTutorial() {
     //    int len = tutorial.Length;
     //    Debug.Log("in func");
-    // 
+    //
     //    for (int i = 0; i < len; i++) {
     //         Debug.Log("in loop");
     //         yield return new WaitForSeconds(0.1f);

@@ -23,8 +23,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public int maxHealth = 100;
         public int initial_XP = 0;
-        public int m_PlayerHealth;
-        public int m_PlayerXP;
+        static int m_PlayerHealth;
+        static int m_PlayerXP;
         private bool canShake;
         private Vector3 originalCameraPos;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
@@ -42,6 +42,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
         [SerializeField] private Text endgame_text;
+        [SerializeField] private Text XPUI;
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -60,16 +61,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool canattack;
         private bool isbloody;
         private AudioSource m_AudioSource;
-        private int bosses_defeated = 0;
+        static int bosses_defeated = 0;
 
         public HealthBar healthBar;
 
         // Use this for initialization
         private void Start()
         {
+            if(m_PlayerXP == 0)
+            {
+              m_PlayerXP = initial_XP;
+            }
+            XPUI.text = "Player XP - " + m_PlayerXP;
             m_PlayerHealth = maxHealth;
-            m_PlayerXP = initial_XP;
-
             healthBar.SetMaxHealth(maxHealth);
 
             m_CharacterController = GetComponent<CharacterController>();
@@ -124,6 +128,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public void addXP(int XP)
         {
           m_PlayerXP += XP;
+          XPUI.text = "Player XP - " + m_PlayerXP;
         }
 
         //call this function to see how much XP the player has

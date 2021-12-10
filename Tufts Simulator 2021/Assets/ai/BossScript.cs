@@ -54,13 +54,11 @@ public class BossScript : MonoBehaviour
           TriggerDialogue();
           cantalk = false;
           sphere.enabled = false;
-          Debug.Log(m_speakto.enabled);
           donetalking = true;
         }
         //only behaves like an enemy if the player can't talk to the nemy anymore
         if (donetalking)
         {
-          Debug.Log(m_speakto.enabled);
             //if ai is close enough to player to notice player
             if (Vector3.Distance(transform.position, Player.position) <= MaxDist && Vector3.Distance(transform.position, Player.position) >= MinDist)
             {

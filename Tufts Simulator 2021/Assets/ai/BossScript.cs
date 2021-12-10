@@ -136,7 +136,7 @@ public class BossScript : MonoBehaviour
     float CalculateDamage()
     {
       player_xp = FindObjectOfType<FirstPersonController>().GetXP();
-      return (5 + (player_xp / 10));
+      return (5 + (player_xp / 100));
 
     }
 

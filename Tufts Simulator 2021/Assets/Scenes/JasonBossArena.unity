@@ -8482,7 +8482,7 @@ MonoBehaviour:
     - Oh? You're in my game design class?
     - I'm afraid I don't recognize you... probably should have turned your camera
       on during class!!!
-    name: Jason
+    name: Jason Wiser
     image: {fileID: 21300000, guid: 491ad04cf4c584fec87ab213bac8dc0a, type: 3}
   m_speakto: {fileID: 1982825538}
   sphere: {fileID: 1266112384}

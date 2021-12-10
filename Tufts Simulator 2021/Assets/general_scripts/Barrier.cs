@@ -10,10 +10,13 @@ public class Barrier : MonoBehaviour
     public GameObject barrier;
     public Text barrier_text;
     private int player_xp;
+    public int bossnumber;
+    private string[] bosses;
     // Start is called before the first frame update
     void Start()
     {
       barrier.SetActive(true);
+      bosses = new string[] {"Acorn Head", "Jumbo", "Proffesor Wiser", "Tony Monaco"};
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,7 +26,15 @@ public class Barrier : MonoBehaviour
         player_xp = FindObjectOfType<FirstPersonController>().GetXP();
         if(player_xp >= xp_needed)
         {
-          barrier.SetActive(false);
+          if(FindObjectOfType<FirstPersonController>().GetBossesDefeated() >= bossnumber)
+          {
+            barrier.SetActive(false);
+          }
+          else
+          {
+            barrier_text.text = $"You Must Defeat {bosses[bossnumber-1]} Before You Can Face This Boss";
+            StartCoroutine(DisplayBarrierText());
+          }
         }
         else
         {

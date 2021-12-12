@@ -60,16 +60,10 @@ public class BossScript : MonoBehaviour
         if (donetalking)
         {
             //if ai is close enough to player to notice player
-            if (Vector3.Distance(transform.position, Player.position) <= MaxDist && Vector3.Distance(transform.position, Player.position) >= MinDist)
+            if (Vector3.Distance(transform.position, Player.position) >= MinDist)
             {
               //ai chases player
               transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-            }
-            //if ai is too far away from player to notice them
-            else if (Vector3.Distance(transform.position, Player.position) >= MaxDist)
-            {
-              //do what ai does when its too far away
-              //add script for idle ai activity here (stand still is ok, or add idle walking)
             }
             //if ai is close enough to player to attack them
             else if (canattack && !attacking && Vector3.Distance(transform.position, Player.position) <= MinDist)

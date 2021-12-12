@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenuScript : MonoBehaviour
 {
     public GameObject CanvasObject;
+    public GameObject ControlsCanvas;
 
     void Update()
     {
@@ -32,12 +33,22 @@ public class PauseMenuScript : MonoBehaviour
       //removes pause menu from screen
       CanvasObject.SetActive(false);
       //resumes game (unfreezes time)
-      FindObjectOfType<npc_interaction>().FreePlayer();
+      FindObjectOfType<triggerdialogueobject>().EndDialogue();
     }
 
     public void PauseQuitButton()
     {
         // Quit Game
         Application.Quit();
+    }
+
+    public void OpenControls()
+    {
+        ControlsCanvas.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        ControlsCanvas.SetActive(false);
     }
 }

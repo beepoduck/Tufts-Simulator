@@ -62,6 +62,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool isbloody;
         private AudioSource m_AudioSource;
         static int bosses_defeated = 0;
+        static bool first_load = true;
 
         public HealthBar healthBar;
 
@@ -151,6 +152,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public int GetBossesDefeated()
         {
           return bosses_defeated;
+        }
+
+        public void SetFirstLoad()
+        {
+          first_load = false;
+        }
+
+        public bool GetFirstLoad()
+        {
+          return first_load;
         }
 
         public void DamagePlayer(int Damage)

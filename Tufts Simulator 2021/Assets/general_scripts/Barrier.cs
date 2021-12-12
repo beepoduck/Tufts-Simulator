@@ -17,6 +17,10 @@ public class Barrier : MonoBehaviour
     {
       barrier.SetActive(true);
       bosses = new string[] {"Acorn Head", "Jumbo", "Proffesor Wiser", "Tony Monaco"};
+      if (FindObjectOfType<FirstPersonController>().GetBossesDefeated() > bossnumber)
+      {
+        Object.Destroy(this.gameObject);
+      }
     }
 
     private void OnTriggerEnter(Collider other)

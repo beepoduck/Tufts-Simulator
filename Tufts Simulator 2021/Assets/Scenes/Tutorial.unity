@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3689,7 +3689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &997905979
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3911,7 +3911,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3985,8 +3985,8 @@ RectTransform:
   m_Father: {fileID: 275372888}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5168,9 +5168,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - Hey! Before you get started at Tufts, I figure I'd help you learn how things
-      work around here.
-    - You Can Move Around With WASD, Jump With Spacebar, And Sprint With Shift
+    - Hey, congrats on making it back here after COVID year. As your RA this semester,
+      let me teach you some stuff before you go back to the main campus,
+    - You can move with WASD, jump with space and run with shift.
     - Why don't you give it a try?
     name: Your Crush
     image: {fileID: 21300000, guid: cf1bbf0b4f2d40d47a1d8c7fc13e0dbc, type: 3}
@@ -7351,10 +7351,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - Woah, You're Strong!
-    - If You're Hurt, Grab One Of Those Kale Smoothies Up Ahead. They'll Have You
-      Feeling Great In No Time!
-    - Now That You Have Your Bearings, Let's Get You Back On Campus.
+    - Wow! Are you in Tufts TKD? Because that was awesome.
+    - If you're hurt though, grab a kale smoothie up ahead. It's on the house!
+    - Seems like you're a pro now, let's get back to campus.
     name: Your Crush
     image: {fileID: 21300000, guid: cf1bbf0b4f2d40d47a1d8c7fc13e0dbc, type: 3}
   sphere: {fileID: 1859714354}
@@ -8367,9 +8366,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - Hey, great job!
-    - Be Careful, There's A Freshman Up Ahead. Try To Beat Him Up By Pressing Left
-      Click
+    - Hey, not bad! But we can't all just run away from our problems... Let me teach
+      you how to fight as well.
+    - You see those freshman over there? They're looking kinda mean. Try clicking
+      to punch them.
     name: Your Crush
     image: {fileID: 21300000, guid: cf1bbf0b4f2d40d47a1d8c7fc13e0dbc, type: 3}
   sphere: {fileID: 2007181206}

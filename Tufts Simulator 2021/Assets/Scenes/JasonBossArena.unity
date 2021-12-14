@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4686,10 +4686,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - I Can't Believe You Beat Up Our Teacher.....
-    - That's Kind of Cool I Guess. Atleast I Don't Have To Worry About That Blender
-      Tutorial I Never Did Now.
-    - Keep Going! Tufts Is Almost Back To Normal Thanks To You
+    - "I can't believe you punched our professor in the face!\t"
+    - That's super scary but also so, so metal! I'm honestly really impressed by
+      how brave you are.
+    - With your help, I'm sure Tufts will return to normal very soon!
     name: Your Crush
     image: {fileID: 21300000, guid: cf1bbf0b4f2d40d47a1d8c7fc13e0dbc, type: 3}
   sphere: {fileID: 617900849}
@@ -14676,9 +14676,10 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Are You Sure You Want To Fight Our Teacher???
-    - Maybe Try Leaving An Anonymous Complaint On Piazza First
-    - Atleast Make Sure He Doesn't Punish Us By Assigning More Homework If You Lose......
+    - You're really gonna fight Jason?
+    - Maybe you should write a complaint on piazza first...
+    - Just don't lose, because if you do, he's gonna punish us by making us do peer
+      evaluations for the entire class
     name: Ash
     image: {fileID: 21300000, guid: 576cf9158ec703a41a3329bbbeb71b89, type: 3}
   m_speakto: {fileID: 1982825538}

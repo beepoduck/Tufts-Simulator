@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7464,10 +7464,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - Wow You Really Beat Jumbo In A Fight?
-    - That's Amazing. I Didn't Even Know Ghosts Could Die!
-    - There's Still Plenty Of Work To Do, But Thanks To You Tufts Is Already Starting
-      To Look Better!
+    - "Wow! I can't believe you actually did it!\t"
+    - This is the third time Jumbo has died a horrible death. I had to learn about
+      the history of this elephant because I'm an RA.
+    - 'But still, thanks for making Tufts a safer place for all of us '
     name: Your Crush
     image: {fileID: 21300000, guid: cf1bbf0b4f2d40d47a1d8c7fc13e0dbc, type: 3}
   sphere: {fileID: 1241678593}
@@ -9245,9 +9245,10 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - You're Really Going To Fight Jumbo?!?!
-    - Isn't He Like A Giant Elephant Ghost? And You........... Look Great Today!!
-    - I'm Sure You'll Do Great, Go Kill Jumbo A Second Time!
+    - Damn you're really gonna fight Jumbo?
+    - He's literally an elephant, who died after getting hit by a train. Then died
+      again in a horrible electrical fire.
+    - I guess third time's the charm? Good luck!
     name: Ash
     image: {fileID: 21300000, guid: 576cf9158ec703a41a3329bbbeb71b89, type: 3}
   m_speakto: {fileID: 1906076943}

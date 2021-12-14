@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5468,7 +5468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419191740}
   m_LocalRotation: {x: -0, y: -0.66516227, z: -0, w: 0.7466989}
-  m_LocalPosition: {x: 60.1, y: 148.5, z: -143.8}
+  m_LocalPosition: {x: 51.9, y: 148.5, z: -135.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1754849178}
@@ -11592,7 +11592,7 @@ GameObject:
   - component: {fileID: 901779743}
   - component: {fileID: 901779742}
   m_Layer: 0
-  m_Name: NPC4
+  m_Name: Girl with purple hair
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11606,7 +11606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901779740}
   m_LocalRotation: {x: -0, y: -0.66516227, z: -0, w: 0.7466989}
-  m_LocalPosition: {x: 55.2, y: 148.5, z: -188.8}
+  m_LocalPosition: {x: 78.21, y: 148.5, z: -195.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 323565369}
@@ -11628,13 +11628,10 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - B- w- waaa where am I???
-    - I was literally just hanging out in front of the Rhino when it suddenly unrooted
-      itself from the ground and tried to gore me with its horn!
-    - I escaped onto the Tufts bus and next thing you know, I'm on Medford campus
-      getting equally destroyed by a similar but slightly different animal!
-    - Please end my suffering...
-    name: Lost SMFA
+    - "I got into Tufts by getting into the SMFA\t"
+    - "But I dropped the SMFA and now I'm just a Tufts student\t"
+    - Life hack
+    name: Former Dual Degree
     image: {fileID: 21300000, guid: 933a84dc0462c634e909fc2057242273, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 0}
@@ -12973,15 +12970,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92e45a293a383f046a2ab172baabacf8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.91
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92e45a293a383f046a2ab172baabacf8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92e45a293a383f046a2ab172baabacf8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92e45a293a383f046a2ab172baabacf8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13511,7 +13508,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086868923}
   m_LocalRotation: {x: -0, y: -0.66516227, z: -0, w: 0.7466989}
-  m_LocalPosition: {x: 37.14, y: 148.5, z: -182.6}
+  m_LocalPosition: {x: 34.18, y: 148.5, z: -181.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1433297827}
@@ -14964,7 +14961,7 @@ GameObject:
   - component: {fileID: 1224709115}
   - component: {fileID: 1224709114}
   m_Layer: 0
-  m_Name: 'NPC '
+  m_Name: Mijael
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14978,7 +14975,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224709112}
   m_LocalRotation: {x: -0, y: -0.66516227, z: -0, w: 0.7466989}
-  m_LocalPosition: {x: 47.7, y: 148.5, z: -182.6}
+  m_LocalPosition: {x: 117.49, y: 148.5, z: -152.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 87524866}
@@ -15000,13 +14997,11 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Dude, the acorn head is totally freaking out on Tisch roof right now
-    - He's pounding all the squirrels around him into the ground. I don't know why
-      he's so pissed...
-    - '...or actually, that might have been my fault. Someone dared me to pee on
-      him. '
-    - Sorry...
-    name: Helpful Sophomore
+    - The people in my class made me shave because I was too scary.
+    - And I was making the room an unsafe space...
+    - I don't like this school.
+    - I transferred here last year.
+    name: Mijael
     image: {fileID: 21300000, guid: 933a84dc0462c634e909fc2057242273, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 0}
@@ -15889,7 +15884,7 @@ GameObject:
   - component: {fileID: 1305358730}
   - component: {fileID: 1305358729}
   m_Layer: 0
-  m_Name: NPC2
+  m_Name: Redditor
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15903,7 +15898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305358727}
   m_LocalRotation: {x: -0, y: -0.66516227, z: -0, w: 0.7466989}
-  m_LocalPosition: {x: 60.1, y: 148.5, z: -188.5}
+  m_LocalPosition: {x: 60.1, y: 147.02, z: -188.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1018754222}
@@ -15925,12 +15920,11 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Hey let me tell you a secret.
-    - 'The absolute, best drink of all time on Tufts campus is the green one. No,
-      not sour apple, the kale one! '
-    - I know what you're thinking. Ugh. Grinded up veg? But trust me, just go over
-      there and try it. I guarantee it'll perk you right up.
-    name: Person with too many meal swipes
+    - I have 40,000 karma on reddit
+    - I am the only active redditor on r/Tufts.
+    - The only other person I know who is on that subreddit is Mijael. He should
+      be around campus somewhere.
+    name: Addicted to reddit
     image: {fileID: 21300000, guid: 53f715a3abff0094eb1842ab94ec55e3, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 0}
@@ -17546,7 +17540,7 @@ GameObject:
   - component: {fileID: 1427885331}
   - component: {fileID: 1427885330}
   m_Layer: 0
-  m_Name: NPC3
+  m_Name: Genshin Impact Enjoyer
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17560,7 +17554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427885328}
   m_LocalRotation: {x: -0, y: -0.66516227, z: -0, w: 0.7466989}
-  m_LocalPosition: {x: 66.4, y: 148.5, z: -165.9}
+  m_LocalPosition: {x: 73.16, y: 148.5, z: -166.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1715343628}
@@ -17582,11 +17576,10 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - H-hi! Are you a student at Tufts?
-    - If you're not too busy could I ask you a few questions about your experience?
-    - 'Ok first question: Does Tony Monaco always travel with so many body guards?'
-    - 'second question: how do I stop him from shoving his fist in my face?'
-    name: Prospective student
+    - "I know it's finals week, but I'm addicted to genshin impact!\t"
+    - I need more primogems so I can roll house husband Thoma...
+    - I am 2 months behind on rent
+    name: Genshin Impact Enjoyer
     image: {fileID: 21300000, guid: 576cf9158ec703a41a3329bbbeb71b89, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 0}
@@ -20976,7 +20969,7 @@ GameObject:
   - component: {fileID: 1828754586}
   - component: {fileID: 1828754585}
   m_Layer: 0
-  m_Name: NPC5
+  m_Name: Extremely Tall Man
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20990,7 +20983,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828754583}
   m_LocalRotation: {x: -0, y: 0.29943287, z: -0, w: 0.9541174}
-  m_LocalPosition: {x: 52.6, y: 148.5, z: -183.7}
+  m_LocalPosition: {x: 34, y: 148.5, z: -170.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 405712688}
@@ -21012,12 +21005,11 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - Um do you see that over there?
-    - Not gonna lie, I'm curious... but it's kinda cringe to approach a group of
-      freshman out of nowhere ya get me?
-    - 'I bet they have something good though. TUSC is always handing out free sh*t
-      to them. '
-    name: Confused Econ Major
+    - Uhhhh.... uh I'm from Texas
+    - ...
+    - ...
+    - Yeah that's it
+    name: Extremely Tall Man
     image: {fileID: 21300000, guid: 53f715a3abff0094eb1842ab94ec55e3, type: 3}
   m_speakto: {fileID: 304918576}
   sphere: {fileID: 0}
@@ -21281,15 +21273,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92e45a293a383f046a2ab172baabacf8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.91
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92e45a293a383f046a2ab172baabacf8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92e45a293a383f046a2ab172baabacf8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92e45a293a383f046a2ab172baabacf8, type: 3}
       propertyPath: m_LocalRotation.w

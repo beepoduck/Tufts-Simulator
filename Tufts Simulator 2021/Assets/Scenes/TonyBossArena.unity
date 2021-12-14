@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2315,11 +2315,11 @@ MonoBehaviour:
   Player: {fileID: 0}
   dialogue:
     sentences:
-    - I'm Gonna Be Honest With This One.....
-    - If I Also Had The Chance To Beat Up Tony Monaco I Think I'd Do It.
-    - Just Look Out For His Bodyguards. You May Have Already Met Them, But They're
-      A Little Bit Stronger Than Most Of The Other Students Around Here
-    - He Mainly Just Hires The Lax Bros To Protect Him After They Graduate
+    - You don't stand a chance.
+    - This is Tony Monaco we're talking about. He literallly discovered the gene
+      for muscular dystrophy or something.
+    - If you're still determined to fight him, look out for his body guards. You've
+      probably fought some of them before already, but these are the most elite ones.
     name: Ash
     image: {fileID: 21300000, guid: 576cf9158ec703a41a3329bbbeb71b89, type: 3}
   m_speakto: {fileID: 1099955190}
@@ -2606,9 +2606,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - 'Wow You Really Did It!! '
-    - Tufts Is Finally Back To Normal And It's All Thanks To You
-    - Thanks For Everything :)
+    - You really did it. You defeated the boss. The big boss of Tufts.
+    - Hopefully you knocked the sense back into him. He might even start lowering
+      tuition!
+    - Thank you so much for everything. If you want, we should totally study at Tisch
+      together some time :)
     name: Your Crush
     image: {fileID: 21300000, guid: cf1bbf0b4f2d40d47a1d8c7fc13e0dbc, type: 3}
   sphere: {fileID: 442025243}

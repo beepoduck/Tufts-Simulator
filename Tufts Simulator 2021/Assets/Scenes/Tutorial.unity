@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -640,6 +640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanvasObject: {fileID: 997905978}
   ControlsCanvas: {fileID: 0}
+  isMainMenu: 0
 --- !u!114 &142152763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,6 +1067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanvasObject: {fileID: 997905978}
   ControlsCanvas: {fileID: 510818880}
+  isMainMenu: 0
 --- !u!114 &205793209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,7 +1242,7 @@ AudioSource:
   m_GameObject: {fileID: 332480813}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: cd563196bc993614dafec15d31b88d26, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1615,7 +1617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &510818881
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2301,6 +2303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanvasObject: {fileID: 997905978}
   ControlsCanvas: {fileID: 0}
+  isMainMenu: 0
 --- !u!114 &822395803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2879,7 +2882,7 @@ AudioSource:
   m_GameObject: {fileID: 951118644}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: cd563196bc993614dafec15d31b88d26, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3734,6 +3737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanvasObject: {fileID: 997905978}
   ControlsCanvas: {fileID: 0}
+  isMainMenu: 0
 --- !u!225 &997905981
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4464,7 +4468,7 @@ AudioSource:
   m_GameObject: {fileID: 1183657665}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: cd563196bc993614dafec15d31b88d26, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5749,7 +5753,7 @@ AudioSource:
   m_GameObject: {fileID: 1498529276}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: cd563196bc993614dafec15d31b88d26, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

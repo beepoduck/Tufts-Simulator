@@ -8,6 +8,7 @@ public class PauseMenuScript : MonoBehaviour
 {
     public GameObject CanvasObject;
     public GameObject ControlsCanvas;
+    public bool isMainMenu = false;
 
     void Update()
     {
@@ -32,8 +33,11 @@ public class PauseMenuScript : MonoBehaviour
     {
       //removes pause menu from screen
       CanvasObject.SetActive(false);
-      //resumes game (unfreezes time)
-      FindObjectOfType<triggerdialogueobject>().EndDialogue();
+      if(isMainMenu == false)
+      {
+        //resumes game (unfreezes time)
+        FindObjectOfType<triggerdialogueobject>().EndDialogue();
+      }
     }
 
     public void PauseQuitButton()

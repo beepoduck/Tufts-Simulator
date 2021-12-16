@@ -20,7 +20,7 @@ using UnityStandardAssets.Characters.FirstPerson;
      public AudioClip[] hit_sounds;
      public AudioSource audioSource;
      public int MoveSpeed = 4;
-     public int respawnTimer = 10;
+     public int respawnTimer = 60;
 
      private bool attacking = false;
      private bool canattack = true;

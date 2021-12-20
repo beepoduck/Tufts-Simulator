@@ -188,6 +188,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
           healthBar.SetHealth(m_PlayerHealth);
 
         }
+        
+        public int getHealth()
+        {
+            return m_PlayerHealth;
+        }
 
         //this function starts a coroutine to display punch sound and annimation
         IEnumerator Punch()

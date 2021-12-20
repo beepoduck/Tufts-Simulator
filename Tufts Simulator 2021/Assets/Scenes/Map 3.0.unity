@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11648,6 +11648,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 4b76b9ae5b16748149285b51b11e1969, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 02e127358081942338a1603b155d5f09, type: 2}
     - target: {fileID: 919132149155446097, guid: 4b76b9ae5b16748149285b51b11e1969, type: 3}
       propertyPath: m_Name
       value: braker
@@ -25396,6 +25400,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: d95fbf9295e3240168f2cdf4de22df49, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 700148b8e660f4d78a04abf054977213, type: 2}
     - target: {fileID: 919132149155446097, guid: d95fbf9295e3240168f2cdf4de22df49, type: 3}
       propertyPath: m_Name
       value: CampusCenter

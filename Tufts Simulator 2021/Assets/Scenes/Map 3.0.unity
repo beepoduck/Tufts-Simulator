@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7556,6 +7556,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 0de2facd0f5394f75b130df4d108583e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 702899fd18c2e46ae8633e1eddc291f0, type: 2}
     - target: {fileID: 919132149155446097, guid: 0de2facd0f5394f75b130df4d108583e, type: 3}
       propertyPath: m_Name
       value: HeighWall (1)
@@ -11404,8 +11408,12 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 759c4e166011f4571bc46cc4049c59ed, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 759c4e166011f4571bc46cc4049c59ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.3
+      value: 377
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 759c4e166011f4571bc46cc4049c59ed, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11443,6 +11451,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 759c4e166011f4571bc46cc4049c59ed, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 702899fd18c2e46ae8633e1eddc291f0, type: 2}
     - target: {fileID: 919132149155446097, guid: 759c4e166011f4571bc46cc4049c59ed, type: 3}
       propertyPath: m_Name
       value: WidthWall
@@ -18220,6 +18232,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 759c4e166011f4571bc46cc4049c59ed, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c388e73940fa947e6b56dffd03b40fe4, type: 2}
     - target: {fileID: 919132149155446097, guid: 759c4e166011f4571bc46cc4049c59ed, type: 3}
       propertyPath: m_Name
       value: WidthWall (1)
@@ -23778,6 +23794,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 50f8b53d461824e0e8d75b865111b943, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 090f077cf85294d7e88e1eb587815d04, type: 2}
     - target: {fileID: 919132149155446097, guid: 50f8b53d461824e0e8d75b865111b943, type: 3}
       propertyPath: m_Name
       value: Halligan
@@ -26497,6 +26517,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0de2facd0f5394f75b130df4d108583e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0de2facd0f5394f75b130df4d108583e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -30.5
       objectReference: {fileID: 0}
@@ -26506,7 +26530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0de2facd0f5394f75b130df4d108583e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37
+      value: -280.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0de2facd0f5394f75b130df4d108583e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26536,6 +26560,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 0de2facd0f5394f75b130df4d108583e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 702899fd18c2e46ae8633e1eddc291f0, type: 2}
     - target: {fileID: 919132149155446097, guid: 0de2facd0f5394f75b130df4d108583e, type: 3}
       propertyPath: m_Name
       value: HeighWall

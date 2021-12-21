@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace UnityStandardAssets.Characters.FirstPerson
@@ -144,7 +145,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
           bosses_defeated += 1;
           if (bosses_defeated >= 4)
           {
-              endgame_text.enabled = true;
+              SceneManager.LoadScene("Ending Scene");
           }
         }
 

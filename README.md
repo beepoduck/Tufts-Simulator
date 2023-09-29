@@ -1,2 +1,2 @@
-# Final-Project-Game
-CS23
+# Tufts Simulator
+# https://tuftssimulator.wixsite.com/my-site
